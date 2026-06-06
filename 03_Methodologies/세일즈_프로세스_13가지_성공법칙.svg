@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1f3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1729;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg3)"/>
+
+  <!-- Title Section -->
+  <text x="400" y="70" text-anchor="middle" style="font-size: 48px;">📊</text>
+  <text x="400" y="115" text-anchor="middle" style="font-size: 28px; font-weight: bold; fill: #f1f5f9;">
+    세일즈 프로세스 13가지 성공법칙
+  </text>
+  <text x="400" y="145" text-anchor="middle" style="font-size: 15px; fill: #94a3b8;">
+    GE 프로들이 사용하는 실전 세일즈 전략
+  </text>
+
+  <!-- Divider -->
+  <line x1="200" y1="165" x2="600" y2="165" stroke="rgba(102, 126, 234, 0.3)" stroke-width="2"/>
+
+  <!-- Laws Grid (3x5) -->
+  <!-- Row 1 -->
+  <g>
+    <rect x="80" y="190" width="200" height="70" rx="8" fill="rgba(102, 126, 234, 0.15)" stroke="rgba(102, 126, 234, 0.3)" stroke-width="1.5"/>
+    <text x="180" y="215" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #a5b4fc;">법칙 1</text>
+    <text x="180" y="240" text-anchor="middle" style="font-size: 12px; fill: #cbd5e1;">고객을 중심에 두어라</text>
+  </g>
+
+  <g>
+    <rect x="300" y="190" width="200" height="70" rx="8" fill="rgba(102, 126, 234, 0.15)" stroke="rgba(102, 126, 234, 0.3)" stroke-width="1.5"/>
+    <text x="400" y="215" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #a5b4fc;">법칙 2</text>
+    <text x="400" y="240" text-anchor="middle" style="font-size: 12px; fill: #cbd5e1;">Pull형 세일즈</text>
+  </g>
+
+  <g>
+    <rect x="520" y="190" width="200" height="70" rx="8" fill="rgba(102, 126, 234, 0.15)" stroke="rgba(102, 126, 234, 0.3)" stroke-width="1.5"/>
+    <text x="620" y="215" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #a5b4fc;">법칙 3</text>
+    <text x="620" y="240" text-anchor="middle" style="font-size: 12px; fill: #cbd5e1;">스토리의 중요성</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g>
+    <rect x="80" y="280" width="200" height="70" rx="8" fill="rgba(102, 126, 234, 0.15)" stroke="rgba(102, 126, 234, 0.3)" stroke-width="1.5"/>
+    <text x="180" y="305" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #a5b4fc;">법칙 4</text>
+    <text x="180" y="330" text-anchor="middle" style="font-size: 12px; fill: #cbd5e1;">고객 니즈 해결책</text>
+  </g>
+
+  <g>
+    <rect x="300" y="280" width="200" height="70" rx="8" fill="rgba(102, 126, 234, 0.15)" stroke="rgba(102, 126, 234, 0.3)" stroke-width="1.5"/>
+    <text x="400" y="305" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #a5b4fc;">법칙 5</text>
+    <text x="400" y="330" text-anchor="middle" style="font-size: 12px; fill: #cbd5e1;">포기하지 말라</text>
+  </g>
+
+  <g>
+    <rect x="520" y="280" width="200" height="70" rx="8" fill="rgba(102, 126, 234, 0.15)" stroke="rgba(102, 126, 234, 0.3)" stroke-width="1.5"/>
+    <text x="620" y="305" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #a5b4fc;">법칙 6</text>
+    <text x="620" y="330" text-anchor="middle" style="font-size: 12px; fill: #cbd5e1;">상담의 질 향상</text>
+  </g>
+
+  <!-- Row 3 -->
+  <g>
+    <rect x="80" y="370" width="200" height="60" rx="8" fill="rgba(167, 139, 250, 0.15)" stroke="rgba(167, 139, 250, 0.3)" stroke-width="1.5"/>
+    <text x="180" y="395" text-anchor="middle" style="font-size: 14px; font-weight: bold; fill: #c4b5fd;">법칙 7-13</text>
+    <text x="180" y="417" text-anchor="middle" style="font-size: 11px; fill: #94a3b8;">+ 7가지 더보기</text>
+  </g>
+
+  <!-- Supporting Methods -->
+  <g>
+    <rect x="300" y="370" width="200" height="60" rx="8" fill="rgba(74, 222, 128, 0.15)" stroke="rgba(74, 222, 128, 0.3)" stroke-width="1.5"/>
+    <text x="400" y="395" text-anchor="middle" style="font-size: 13px; font-weight: bold; fill: #86efac;">AIDAS 법칙</text>
+    <text x="400" y="417" text-anchor="middle" style="font-size: 10px; fill: #94a3b8;">5단계 구매 심리</text>
+  </g>
+
+  <g>
+    <rect x="520" y="370" width="200" height="60" rx="8" fill="rgba(74, 222, 128, 0.15)" stroke="rgba(74, 222, 128, 0.3)" stroke-width="1.5"/>
+    <text x="620" y="395" text-anchor="middle" style="font-size: 13px; font-weight: bold; fill: #86efac;">10 Steps</text>
+    <text x="620" y="417" text-anchor="middle" style="font-size: 10px; fill: #94a3b8;">세일즈 프로세스</text>
+  </g>
+
+  <!-- Key Components -->
+  <rect x="150" y="460" width="500" height="90" rx="10" fill="rgba(30, 41, 59, 0.6)" stroke="rgba(102, 126, 234, 0.2)" stroke-width="1.5"/>
+  <text x="400" y="485" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #f1f5f9;">핵심 구성</text>
+
+  <text x="200" y="515" style="font-size: 13px; fill: #cbd5e1;">🎯 Boss Managing</text>
+  <text x="200" y="535" style="font-size: 13px; fill: #cbd5e1;">👥 Customer Managing</text>
+
+  <text x="480" y="515" style="font-size: 13px; fill: #cbd5e1;">📈 역량의 역치</text>
+  <text x="480" y="535" style="font-size: 13px; fill: #cbd5e1;">⏱️ 역량의 반감기</text>
+
+  <!-- Footer -->
+  <text x="400" y="575" text-anchor="middle" style="font-size: 12px; fill: #64748b;">
+    출처: 서적 4 - GE의 세일즈 노트.pdf | 저자: 심재우
+  </text>
+</svg>

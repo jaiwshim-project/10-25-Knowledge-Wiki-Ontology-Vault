@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1f3a;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0f1729;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1f3a;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glowGradient" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#667eea;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bgGradient)"/>
+  <circle cx="200" cy="150" r="150" fill="url(#glowGradient)"/>
+
+  <!-- Main Icon -->
+  <text x="400" y="100" text-anchor="middle" style="font-size: 64px;">🏠</text>
+
+  <!-- Title -->
+  <text x="400" y="160" text-anchor="middle" style="font-size: 36px; font-weight: bold; fill: #f1f5f9;">
+    심재우 저서 Knowledge Vault
+  </text>
+
+  <!-- Subtitle -->
+  <text x="400" y="195" text-anchor="middle" style="font-size: 16px; fill: #94a3b8;">
+    6권의 서적에서 추출한 지식을 Obsidian Wiki와 온톨로지로 구조화
+  </text>
+
+  <!-- Divider -->
+  <line x1="200" y1="220" x2="600" y2="220" stroke="rgba(102, 126, 234, 0.3)" stroke-width="2"/>
+
+  <!-- Section 1: 프로젝트 -->
+  <text x="100" y="270" style="font-size: 20px; font-weight: bold; fill: #667eea;">📖 프로젝트</text>
+  <text x="120" y="300" style="font-size: 14px; fill: #cbd5e1;">• GE 비즈니스 방법론</text>
+  <text x="120" y="325" style="font-size: 14px; fill: #cbd5e1;">• 세일즈 프로세스 13가지</text>
+  <text x="120" y="350" style="font-size: 14px; fill: #cbd5e1;">• 변화리더십 101</text>
+  <text x="120" y="375" style="font-size: 14px; fill: #cbd5e1;">• 4E+V 인재육성</text>
+
+  <!-- Section 2: 핵심 개념 -->
+  <text x="430" y="270" style="font-size: 20px; font-weight: bold; fill: #48bb78;">💡 핵심 개념</text>
+  <text x="450" y="300" style="font-size: 14px; fill: #cbd5e1;">• 세일즈 & 마케팅</text>
+  <text x="450" y="325" style="font-size: 14px; fill: #cbd5e1;">• 리더십 & 변화관리</text>
+  <text x="450" y="350" style="font-size: 14px; fill: #cbd5e1;">• 인재 육성 & 역량</text>
+  <text x="450" y="375" style="font-size: 14px; fill: #cbd5e1;">• 소통 & 커뮤니케이션</text>
+
+  <!-- Section 3: 원본 문서 -->
+  <text x="100" y="430" style="font-size: 20px; font-weight: bold; fill: #a78bfa;">📄 원본 문서</text>
+  <text x="120" y="460" style="font-size: 13px; fill: #cbd5e1;">• 1% 위대한 기업은 어떻게 일하는가 (6.7MB)</text>
+  <text x="120" y="482" style="font-size: 13px; fill: #cbd5e1;">• GE의 세일즈 노트 (2.6MB)</text>
+  <text x="120" y="504" style="font-size: 13px; fill: #cbd5e1;">• GE의 변화리더십 101 (1.7MB)</text>
+  <text x="120" y="526" style="font-size: 13px; fill: #cbd5e1;">• 수퍼급 인재를 만드는 방법 (742KB)</text>
+
+  <!-- Section 4: 온톨로지 -->
+  <text x="430" y="430" style="font-size: 20px; font-weight: bold; fill: #f59e0b;">📊 온톨로지</text>
+  <text x="450" y="460" style="font-size: 14px; fill: #cbd5e1;">• 38개 지식 노드</text>
+  <text x="450" y="485" style="font-size: 14px; fill: #cbd5e1;">• 50개 관계 엣지</text>
+  <text x="450" y="510" style="font-size: 14px; fill: #cbd5e1;">• 지식 그래프 시각화</text>
+
+  <!-- Footer -->
+  <text x="400" y="570" text-anchor="middle" style="font-size: 12px; fill: #64748b;">
+    생성일: 2026-06-06 | Knowledge Wiki &amp; Ontology Vault
+  </text>
+</svg>

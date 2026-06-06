@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1f3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1729;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg6)"/>
+
+  <!-- Title -->
+  <text x="400" y="70" text-anchor="middle" style="font-size: 52px;">💬</text>
+  <text x="400" y="125" text-anchor="middle" style="font-size: 32px; font-weight: bold; fill: #f1f5f9;">소통의 신</text>
+  <text x="400" y="160" text-anchor="middle" style="font-size: 15px; fill: #94a3b8;">소셜미디어와 조직 내 소통 방법론</text>
+
+  <!-- 3 Main Circles -->
+  <!-- SNS Communication -->
+  <g>
+    <circle cx="200" cy="300" r="90" fill="rgba(59, 130, 246, 0.3)" stroke="rgba(59, 130, 246, 0.6)" stroke-width="2.5"/>
+    <text x="200" y="280" text-anchor="middle" style="font-size: 40px;">📱</text>
+    <text x="200" y="320" text-anchor="middle" style="font-size: 18px; font-weight: bold; fill: #f1f5f9;">SNS</text>
+    <text x="200" y="340" text-anchor="middle" style="font-size: 12px; fill: #94a3b8;">소셜미디어</text>
+  </g>
+
+  <!-- Organization Communication -->
+  <g>
+    <circle cx="400" cy="300" r="100" fill="rgba(74, 222, 128, 0.3)" stroke="rgba(74, 222, 128, 0.6)" stroke-width="3"/>
+    <text x="400" y="280" text-anchor="middle" style="font-size: 44px;">👥</text>
+    <text x="400" y="320" text-anchor="middle" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">조직 소통</text>
+    <text x="400" y="345" text-anchor="middle" style="font-size: 12px; fill: #94a3b8;">Organization</text>
+  </g>
+
+  <!-- Town Meeting -->
+  <g>
+    <circle cx="600" cy="300" r="90" fill="rgba(251, 146, 60, 0.3)" stroke="rgba(251, 146, 60, 0.6)" stroke-width="2.5"/>
+    <text x="600" y="280" text-anchor="middle" style="font-size: 40px;">🎯</text>
+    <text x="600" y="320" text-anchor="middle" style="font-size: 18px; font-weight: bold; fill: #f1f5f9;">타운미팅</text>
+    <text x="600" y="340" text-anchor="middle" style="font-size: 12px; fill: #94a3b8;">Town Meeting</text>
+  </g>
+
+  <!-- Connection Lines -->
+  <line x1="290" y1="300" x2="300" y2="300" stroke="rgba(148, 163, 184, 0.3)" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="500" y1="300" x2="510" y2="300" stroke="rgba(148, 163, 184, 0.3)" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <!-- Bottom Details -->
+  <g>
+    <rect x="100" y="450" width="200" height="100" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(59, 130, 246, 0.3)" stroke-width="1.5"/>
+    <text x="200" y="475" text-anchor="middle" style="font-size: 14px; font-weight: bold; fill: #93c5fd;">페이스북 소통</text>
+    <text x="200" y="500" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">• 고객과의 대화</text>
+    <text x="200" y="520" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">• 브랜드 구축</text>
+    <text x="200" y="540" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">• 실시간 피드백</text>
+  </g>
+
+  <g>
+    <rect x="325" y="450" width="150" height="100" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(74, 222, 128, 0.3)" stroke-width="1.5"/>
+    <text x="400" y="475" text-anchor="middle" style="font-size: 14px; font-weight: bold; fill: #86efac;">YOU&amp;I 회관</text>
+    <text x="400" y="500" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">내부 소통</text>
+    <text x="400" y="520" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">신뢰 구축</text>
+  </g>
+
+  <g>
+    <rect x="500" y="450" width="200" height="100" rx="10" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(251, 146, 60, 0.3)" stroke-width="1.5"/>
+    <text x="600" y="475" text-anchor="middle" style="font-size: 14px; font-weight: bold; fill: #fdba74;">타운미팅 프로세스</text>
+    <text x="600" y="500" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">• 경영진-직원 대화</text>
+    <text x="600" y="520" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">• 투명한 소통</text>
+    <text x="600" y="540" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">• 참여와 몰입</text>
+  </g>
+</svg>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Wiki 문서 갤러리 | 9개 Wiki 문서</title>
+    <meta name="description" content="심재우 저서 6권의 핵심 지식을 담은 9개 Wiki 문서 갤러리 - SVG 카드 형태로 시각화">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #1a1f3a 0%, #0f1729 50%, #1a1f3a 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(167, 139, 250, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+            text-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .header p {
+            font-size: 1.125rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+
+        .stat-icon {
+            font-size: 1.25rem;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* SVG Document Card */
+        .doc-card {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .doc-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.4);
+        }
+
+        .doc-card-svg {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+            padding: 24px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .doc-card-content {
+            padding: 24px;
+        }
+
+        .doc-type-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .type-index { background: rgba(102, 126, 234, 0.2); color: #a5b4fc; }
+        .type-methodology { background: rgba(167, 139, 250, 0.2); color: #c4b5fd; }
+        .type-concept { background: rgba(74, 222, 128, 0.2); color: #86efac; }
+        .type-person { background: rgba(251, 146, 60, 0.2); color: #fdba74; }
+        .type-company { background: rgba(239, 68, 68, 0.2); color: #fca5a5; }
+
+        .doc-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .doc-card-desc {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .doc-card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .doc-card-footer {
+            padding: 16px 24px;
+            background: rgba(15, 23, 42, 0.4);
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .view-btn {
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #667eea 0%, #a78bfa 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .view-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            padding: 4px 10px;
+            background: rgba(51, 65, 85, 0.6);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: #cbd5e1;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 12px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            padding: 12px 20px;
+            background: rgba(30, 41, 59, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 12px;
+            color: #e2e8f0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            background: rgba(102, 126, 234, 0.3);
+            border-color: rgba(102, 126, 234, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-bar {
+                position: static;
+                justify-content: center;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="index.html" class="nav-btn">🏠 홈</a>
+        <a href="knowledge_vault_premium.html" class="nav-btn">📚 Knowledge Vault</a>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>📚 Knowledge Wiki 문서 갤러리</h1>
+            <p>심재우 저서 6권의 핵심 지식을 담은 9개 Wiki 문서 컬렉션</p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-icon">📄</span>
+                    <span>9개 문서</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">🎓</span>
+                    <span>5개 주제 영역</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">🔗</span>
+                    <span>38개 온톨로지 노드</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-grid" id="gallery">
+            <!-- Cards will be generated by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const documents = [
+            {
+                id: 'home',
+                title: '심재우 저서 Knowledge Vault 홈',
+                type: 'Index',
+                typeClass: 'type-index',
+                description: '6권의 서적에서 추출한 지식을 Obsidian Wiki와 온톨로지 Knowledge DB로 구조화한 지식 저장소',
+                icon: '🏠',
+                tags: ['인덱스', '개요', '전체구조'],
+                lines: 221,
+                created: '2026-06-06',
+                keyTopics: ['프로젝트 개요', '문서 목록', '온톨로지 구조', '폴더 구조'],
+                svgContent: `
+                    <text x="20" y="40" style="font-size: 32px;">🏠</text>
+                    <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">Knowledge Vault</text>
+                    <text x="20" y="120" style="font-size: 14px; fill: #94a3b8;">전체 지식 구조의 출발점</text>
+                    <rect x="20" y="140" width="320" height="2" fill="rgba(102, 126, 234, 0.3)"/>
+                    <text x="20" y="170" style="font-size: 13px; fill: #cbd5e1;">📚 6개 원본 서적</text>
+                    <text x="20" y="195" style="font-size: 13px; fill: #cbd5e1;">🗂️ 12개 폴더 구조</text>
+                    <text x="20" y="220" style="font-size: 13px; fill: #cbd5e1;">🔗 온톨로지 & 그래프</text>
+                `
+            },
+            {
+                id: 'ge-methodology',
+                title: 'GE 비즈니스 방법론',
+                type: 'Methodology',
+                typeClass: 'type-methodology',
+                description: '15년간 축적된 GE의 세일즈, 변화관리, 인재육성 비즈니스 방법론 체계',
+                icon: '💼',
+                tags: ['GE', '비즈니스', '잭웰치'],
+                lines: 141,
+                created: '2026-06-06',
+                keyTopics: ['세일즈 프로세스', '변화 리더십', '인재 육성', '9가지 리더십'],
+                svgContent: `
+                    <text x="20" y="40" style="font-size: 32px;">💼</text>
+                    <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">GE 비즈니스 방법론</text>
+                    <text x="20" y="120" style="font-size: 14px; fill: #94a3b8;">15년 실무 경험의 집약</text>
+                    <rect x="20" y="140" width="320" height="2" fill="rgba(167, 139, 250, 0.3)"/>
+                    <circle cx="30" cy="170" r="4" fill="#a78bfa"/>
+                    <text x="45" y="175" style="font-size: 13px; fill: #cbd5e1;">세일즈 13가지 법칙</text>
+                    <circle cx="30" cy="195" r="4" fill="#a78bfa"/>
+                    <text x="45" y="200" style="font-size: 13px; fill: #cbd5e1;">변화 리더십 9가지</text>
+                    <circle cx="30" cy="220" r="4" fill="#a78bfa"/>
+                    <text x="45" y="225" style="font-size: 13px; fill: #cbd5e1;">4E+V 인재 모델</text>
+                `
+            },
+            {
+                id: 'sales-13',
+                title: '세일즈 프로세스 13가지 성공법칙',
+                type: 'Methodology',
+                typeClass: 'type-methodology',
+                description: 'GE 프로들이 사용하는 13가지 세일즈 성공 법칙 체계',
+                icon: '📊',
+                tags: ['세일즈', 'GE', '프로세스'],
+                lines: 126,
+                created: '2026-06-06',
+                keyTopics: ['Boss Managing', 'Customer Managing', 'AIDAS', '10 Steps'],
+                svgContent: `
+                    <text x="20" y="40" style="font-size: 32px;">📊</text>
+                    <text x="20" y="90" style="font-size: 18px; font-weight: bold; fill: #f1f5f9;">세일즈 13가지 법칙</text>
+                    <text x="20" y="120" style="font-size: 14px; fill: #94a3b8;">실전 세일즈 성공 전략</text>
+                    <rect x="20" y="140" width="320" height="2" fill="rgba(167, 139, 250, 0.3)"/>
+                    <text x="20" y="170" style="font-size: 12px; fill: #a5b4fc;">법칙 1</text>
+                    <text x="70" y="170" style="font-size: 12px; fill: #cbd5e1;">고객 중심 사고</text>
+                    <text x="20" y="190" style="font-size: 12px; fill: #a5b4fc;">법칙 2</text>
+                    <text x="70" y="190" style="font-size: 12px; fill: #cbd5e1;">Pull형 세일즈</text>
+                    <text x="20" y="210" style="font-size: 12px; fill: #a5b4fc;">법칙 3</text>
+                    <text x="70" y="210" style="font-size: 12px; fill: #cbd5e1;">스토리의 힘</text>
+                    <text x="20" y="235" style="font-size: 11px; fill: #64748b;">+ 10가지 법칙 더보기</text>
+                `
+            },
+            {
+                id: 'change-leadership',
+                title: '변화 리더십 101',
+                type: 'Methodology',
+                typeClass: 'type-methodology',
+                description: '잭 웰치의 변화관리 방법론과 리더십 자질 체계',
+                icon: '🚀',
+                tags: ['리더십', '변화관리', 'GE'],
+                lines: 184,
+                created: '2026-06-06',
+                keyTopics: ['9가지 리더십', '위크아웃', '액션러닝', '변화 파이프라인'],
+                svgContent: `
+                    <text x="20" y="40" style="font-size: 32px;">🚀</text>
+                    <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">변화 리더십 101</text>
+                    <text x="20" y="120" style="font-size: 14px; fill: #94a3b8;">잭 웰치의 변화 철학</text>
+                    <rect x="20" y="140" width="320" height="2" fill="rgba(167, 139, 250, 0.3)"/>
+                    <text x="20" y="165" style="font-size: 13px; font-weight: bold; fill: #c4b5fd;">9가지 핵심 리더십</text>
+                    <text x="20" y="185" style="font-size: 11px; fill: #cbd5e1;">• Energize & Growth</text>
+                    <text x="20" y="202" style="font-size: 11px; fill: #cbd5e1;">• Vision Maker</text>
+                    <text x="20" y="219" style="font-size: 11px; fill: #cbd5e1;">• Execute & Risk-Taking</text>
+                    <text x="20" y="236" style="font-size: 11px; fill: #cbd5e1;">+ 6가지 더보기</text>
+                `
+            },
+            {
+                id: '4ev-model',
+                title: '4E+V 인재육성 모델',
+                type: 'Concept',
+                typeClass: 'type-concept',
+                description: 'GE의 인재 선발 및 육성 핵심 역량 모델',
+                icon: '⭐',
+                tags: ['인재육성', '역량', 'GE'],
+                lines: 123,
+                created: '2026-06-06',
+                keyTopics: ['Energy', 'Energize', 'Edge', 'Execute', 'Values'],
+                svgContent: `
+                    <text x="20" y="40" style="font-size: 32px;">⭐</text>
+                    <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">4E + V 모델</text>
+                    <text x="20" y="120" style="font-size: 14px; fill: #94a3b8;">수퍼급 인재의 5가지 조건</text>
+                    <rect x="20" y="140" width="320" height="2" fill="rgba(74, 222, 128, 0.3)"/>
+                    <text x="30" y="170" style="font-size: 13px; fill: #86efac;">E</text>
+                    <text x="50" y="170" style="font-size: 12px; fill: #cbd5e1;">Energy - 열정과 추진력</text>
+                    <text x="30" y="190" style="font-size: 13px; fill: #86efac;">E</text>
+                    <text x="50" y="190" style="font-size: 12px; fill: #cbd5e1;">Energize - 동기부여 능력</text>
+                    <text x="30" y="210" style="font-size: 13px; fill: #86efac;">E</text>
+                    <text x="50" y="210" style="font-size: 12px; fill: #cbd5e1;">Edge - 결단력</text>
+                    <text x="30" y="230" style="font-size: 13px; fill: #86efac;">E+V</text>
+                    <text x="65" y="230" style="font-size: 12px; fill: #cbd5e1;">Execute & Values</text>
+                `
+            },
+            {
+                id: 'communication',
+                title: '소통의 신',
+                type: 'Concept',
+                typeClass: 'type-concept',
+                description: '소셜미디어와 조직 내 소통 방법론',
+                icon: '💬',
+                tags: ['소통', 'SNS', '커뮤니케이션'],
+                lines: 113,
+                created: '2026-06-06',
+                keyTopics: ['소셜미디어', '페이스북', '조직 소통', 'YOU&I 회관'],
+                svgContent: `
+                    <text x="20" y="40" style="font-size: 32px;">💬</text>
+                    <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">소통의 신</text>
+                    <text x="20" y="120" style="font-size: 14px; fill: #94a3b8;">디지털 시대 소통 전략</text>
+                    <rect x="20" y="140" width="320" height="2" fill="rgba(74, 222, 128, 0.3)"/>
+                    <text x="20" y="170" style="font-size: 13px; fill: #cbd5e1;">📱 소셜미디어 활용</text>
+                    <text x="20" y="195" style="font-size: 13px; fill: #cbd5e1;">👥 조직 소통 전략</text>
+                    <text x="20" y="220" style="font-size: 13px; fill: #cbd5e1;">🎯 타운미팅 프로세스</text>
+                `
+            },
+            {
+                id: 'jack-welch',
+                title: '잭 웰치 (Jack Welch)',
+                type: 'Person',
+                typeClass: 'type-person',
+                description: 'GE의 전설적 CEO이자 20세기 최고의 경영자',
+                icon: '👤',
+                tags: ['CEO', 'GE', '리더십'],
+                lines: 115,
+                created: '2026-06-06',
+                keyTopics: ['20년 재임', '시가총액 30배 증가', '변화 리더십', '인재 육성'],
+                svgContent: `
+                    <text x="20" y="40" style="font-size: 32px;">👤</text>
+                    <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">잭 웰치</text>
+                    <text x="20" y="120" style="font-size: 14px; fill: #94a3b8;">20세기 최고의 경영자</text>
+                    <rect x="20" y="140" width="320" height="2" fill="rgba(251, 146, 60, 0.3)"/>
+                    <text x="20" y="170" style="font-size: 13px; fill: #cbd5e1;">🏢 GE 회장 (1981-2001)</text>
+                    <text x="20" y="195" style="font-size: 13px; fill: #cbd5e1;">📈 시가총액 30배 증가</text>
+                    <text x="20" y="220" style="font-size: 13px; fill: #cbd5e1;">🎖️ 변화 리더십 창시자</text>
+                `
+            },
+            {
+                id: 'ge-company',
+                title: 'GE (General Electric)',
+                type: 'Company',
+                typeClass: 'type-company',
+                description: '세계에서 가장 강한 조직으로 알려진 글로벌 기업',
+                icon: '🏢',
+                tags: ['기업', '글로벌', '혁신'],
+                lines: 136,
+                created: '2026-06-06',
+                keyTopics: ['Fortune 500', '크로톤빌', '6시그마', '위크아웃'],
+                svgContent: `
+                    <text x="20" y="40" style="font-size: 32px;">🏢</text>
+                    <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">General Electric</text>
+                    <text x="20" y="120" style="font-size: 14px; fill: #94a3b8;">세계 최강 조직의 비밀</text>
+                    <rect x="20" y="140" width="320" height="2" fill="rgba(239, 68, 68, 0.3)"/>
+                    <text x="20" y="170" style="font-size: 13px; fill: #cbd5e1;">🌐 Fortune 500 기업</text>
+                    <text x="20" y="195" style="font-size: 13px; fill: #cbd5e1;">🎓 크로톤빌 리더십 센터</text>
+                    <text x="20" y="220" style="font-size: 13px; fill: #cbd5e1;">⚙️ 6시그마 & 위크아웃</text>
+                `
+            },
+            {
+                id: 'author',
+                title: '심재우 (저자)',
+                type: 'Person',
+                typeClass: 'type-person',
+                description: 'GE 글로벌 비즈니스 역량 전문가이자 저자',
+                icon: '✍️',
+                tags: ['저자', 'GE', '컨설턴트'],
+                lines: 189,
+                created: '2026-06-06',
+                keyTopics: ['15년 GE 경력', '6권 저서', 'SB 컨설팅', '아주대 강사'],
+                svgContent: `
+                    <text x="20" y="40" style="font-size: 32px;">✍️</text>
+                    <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">심재우 저자</text>
+                    <text x="20" y="120" style="font-size: 14px; fill: #94a3b8;">GE 실무 전문가</text>
+                    <rect x="20" y="140" width="320" height="2" fill="rgba(251, 146, 60, 0.3)"/>
+                    <text x="20" y="170" style="font-size: 13px; fill: #cbd5e1;">📚 6권 저서</text>
+                    <text x="20" y="195" style="font-size: 13px; fill: #cbd5e1;">🎓 아주대 초빙강사</text>
+                    <text x="20" y="220" style="font-size: 13px; fill: #cbd5e1;">💼 SB 컨설팅 대표</text>
+                `
+            }
+        ];
+
+        function createDocCard(doc) {
+            return `
+                <div class="doc-card" onclick="viewDocument('${doc.id}')">
+                    <div class="doc-card-svg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 360 260">
+                            ${doc.svgContent}
+                        </svg>
+                    </div>
+                    <div class="doc-card-content">
+                        <span class="doc-type-badge ${doc.typeClass}">${doc.type}</span>
+                        <h3 class="doc-card-title">${doc.icon} ${doc.title}</h3>
+                        <p class="doc-card-desc">${doc.description}</p>
+                        <div class="doc-card-meta">
+                            <span class="meta-item">📄 ${doc.lines}줄</span>
+                            <span class="meta-item">📅 ${doc.created}</span>
+                        </div>
+                    </div>
+                    <div class="doc-card-footer">
+                        <div class="tags">
+                            ${doc.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        <button class="view-btn" onclick="event.stopPropagation(); viewDocument('${doc.id}')">보기 →</button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function viewDocument(docId) {
+            // Knowledge Vault로 이동하면서 해당 문서 검색
+            const doc = documents.find(d => d.id === docId);
+            if (doc) {
+                window.location.href = `knowledge_vault_premium.html?search=${encodeURIComponent(doc.title)}`;
+            }
+        }
+
+        // Render gallery
+        document.getElementById('gallery').innerHTML = documents.map(doc => createDocCard(doc)).join('');
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1f3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1729;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glow4" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg4)"/>
+  <circle cx="400" cy="300" r="250" fill="url(#glow4)"/>
+
+  <!-- Title -->
+  <text x="400" y="70" text-anchor="middle" style="font-size: 48px;">🚀</text>
+  <text x="400" y="115" text-anchor="middle" style="font-size: 30px; font-weight: bold; fill: #f1f5f9;">
+    변화 리더십 101
+  </text>
+  <text x="400" y="145" text-anchor="middle" style="font-size: 15px; fill: #a78bfa;">
+    잭 웰치의 변화관리 방법론과 리더십 자질 체계
+  </text>
+
+  <!-- Central Circle with 9 Leadership Qualities -->
+  <circle cx="400" cy="320" r="180" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(167, 139, 250, 0.5)" stroke-width="2"/>
+
+  <!-- Center Text -->
+  <text x="400" y="305" text-anchor="middle" style="font-size: 20px; font-weight: bold; fill: #c4b5fd;">
+    9가지 핵심
+  </text>
+  <text x="400" y="330" text-anchor="middle" style="font-size: 18px; font-weight: bold; fill: #c4b5fd;">
+    리더십 자질
+  </text>
+
+  <!-- 9 Leadership Qualities in Circle -->
+  <g>
+    <!-- 1. Top -->
+    <circle cx="400" cy="160" r="35" fill="rgba(102, 126, 234, 0.3)" stroke="rgba(102, 126, 234, 0.6)" stroke-width="2"/>
+    <text x="400" y="155" text-anchor="middle" style="font-size: 16px;">🔥</text>
+    <text x="400" y="175" text-anchor="middle" style="font-size: 10px; font-weight: bold; fill: #e2e8f0;">Energize</text>
+
+    <!-- 2. Top-Right -->
+    <circle cx="555" cy="210" r="30" fill="rgba(102, 126, 234, 0.3)" stroke="rgba(102, 126, 234, 0.6)" stroke-width="2"/>
+    <text x="555" y="210" text-anchor="middle" style="font-size: 14px;">👁️</text>
+    <text x="555" y="230" text-anchor="middle" style="font-size: 9px; font-weight: bold; fill: #e2e8f0;">Vision</text>
+
+    <!-- 3. Right -->
+    <circle cx="595" cy="320" r="30" fill="rgba(102, 126, 234, 0.3)" stroke="rgba(102, 126, 234, 0.6)" stroke-width="2"/>
+    <text x="595" y="320" text-anchor="middle" style="font-size: 14px;">⚡</text>
+    <text x="595" y="340" text-anchor="middle" style="font-size: 9px; font-weight: bold; fill: #e2e8f0;">Energy</text>
+
+    <!-- 4. Bottom-Right -->
+    <circle cx="530" cy="420" r="30" fill="rgba(167, 139, 250, 0.3)" stroke="rgba(167, 139, 250, 0.6)" stroke-width="2"/>
+    <text x="530" y="420" text-anchor="middle" style="font-size: 14px;">🎯</text>
+    <text x="530" y="440" text-anchor="middle" style="font-size: 9px; font-weight: bold; fill: #e2e8f0;">Integrity</text>
+
+    <!-- 5. Bottom -->
+    <circle cx="400" cy="460" r="35" fill="rgba(167, 139, 250, 0.3)" stroke="rgba(167, 139, 250, 0.6)" stroke-width="2"/>
+    <text x="400" y="460" text-anchor="middle" style="font-size: 16px;">⚔️</text>
+    <text x="400" y="480" text-anchor="middle" style="font-size: 10px; font-weight: bold; fill: #e2e8f0;">Edge</text>
+
+    <!-- 6. Bottom-Left -->
+    <circle cx="270" cy="420" r="30" fill="rgba(167, 139, 250, 0.3)" stroke="rgba(167, 139, 250, 0.6)" stroke-width="2"/>
+    <text x="270" y="420" text-anchor="middle" style="font-size: 14px;">💬</text>
+    <text x="270" y="440" text-anchor="middle" style="font-size: 9px; font-weight: bold; fill: #e2e8f0;">Comm.</text>
+
+    <!-- 7. Left -->
+    <circle cx="205" cy="320" r="30" fill="rgba(74, 222, 128, 0.3)" stroke="rgba(74, 222, 128, 0.6)" stroke-width="2"/>
+    <text x="205" y="320" text-anchor="middle" style="font-size: 14px;">🚀</text>
+    <text x="205" y="340" text-anchor="middle" style="font-size: 9px; font-weight: bold; fill: #e2e8f0;">Execute</text>
+
+    <!-- 8. Top-Left -->
+    <circle cx="245" cy="210" r="30" fill="rgba(74, 222, 128, 0.3)" stroke="rgba(74, 222, 128, 0.6)" stroke-width="2"/>
+    <text x="245" y="210" text-anchor="middle" style="font-size: 14px;">🎉</text>
+    <text x="245" y="230" text-anchor="middle" style="font-size: 9px; font-weight: bold; fill: #e2e8f0;">Sharing</text>
+
+    <!-- 9. Center-Top -->
+    <circle cx="400" cy="240" r="25" fill="rgba(251, 146, 60, 0.3)" stroke="rgba(251, 146, 60, 0.6)" stroke-width="2"/>
+    <text x="400" y="245" text-anchor="middle" style="font-size: 12px;">⭐</text>
+    <text x="400" y="262" text-anchor="middle" style="font-size: 8px; font-weight: bold; fill: #e2e8f0;">Excellence</text>
+  </g>
+
+  <!-- Supporting Concepts at Bottom -->
+  <g>
+    <rect x="120" y="520" width="150" height="50" rx="8" fill="rgba(74, 222, 128, 0.2)" stroke="rgba(74, 222, 128, 0.4)" stroke-width="1.5"/>
+    <text x="195" y="545" text-anchor="middle" style="font-size: 14px; font-weight: bold; fill: #86efac;">위크아웃</text>
+    <text x="195" y="562" text-anchor="middle" style="font-size: 10px; fill: #94a3b8;">WorkOut</text>
+  </g>
+
+  <g>
+    <rect x="325" y="520" width="150" height="50" rx="8" fill="rgba(74, 222, 128, 0.2)" stroke="rgba(74, 222, 128, 0.4)" stroke-width="1.5"/>
+    <text x="400" y="545" text-anchor="middle" style="font-size: 14px; font-weight: bold; fill: #86efac;">액션러닝</text>
+    <text x="400" y="562" text-anchor="middle" style="font-size: 10px; fill: #94a3b8;">Action Learning</text>
+  </g>
+
+  <g>
+    <rect x="530" y="520" width="150" height="50" rx="8" fill="rgba(167, 139, 250, 0.2)" stroke="rgba(167, 139, 250, 0.4)" stroke-width="1.5"/>
+    <text x="605" y="545" text-anchor="middle" style="font-size: 14px; font-weight: bold; fill: #c4b5fd;">파이프라인</text>
+    <text x="605" y="562" text-anchor="middle" style="font-size: 10px; fill: #94a3b8;">Pipeline</text>
+  </g>
+</svg>

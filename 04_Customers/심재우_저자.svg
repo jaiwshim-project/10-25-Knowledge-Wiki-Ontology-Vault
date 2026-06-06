@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1f3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1729;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glow9">
+      <stop offset="0%" style="stop-color:#fb923c;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#fb923c;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg9)"/>
+  <circle cx="400" cy="200" r="180" fill="url(#glow9)"/>
+
+  <!-- Title -->
+  <text x="400" y="80" text-anchor="middle" style="font-size: 56px;">✍️</text>
+  <text x="400" y="140" text-anchor="middle" style="font-size: 36px; font-weight: bold; fill: #f1f5f9;">심재우</text>
+  <text x="400" y="175" text-anchor="middle" style="font-size: 16px; fill: #fdba74;">Jai-Woo Shim</text>
+  <text x="400" y="200" text-anchor="middle" style="font-size: 14px; fill: #94a3b8;">GE 글로벌 비즈니스 역량 전문가</text>
+
+  <!-- Main Credentials Box -->
+  <rect x="150" y="230" width="500" height="160" rx="12" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(251, 146, 60, 0.3)" stroke-width="2"/>
+
+  <text x="400" y="260" text-anchor="middle" style="font-size: 18px; font-weight: bold; fill: #fdba74;">주요 경력</text>
+  <line x1="200" y1="270" x2="600" y2="270" stroke="rgba(251, 146, 60, 0.2)" stroke-width="1"/>
+
+  <g>
+    <text x="170" y="300" style="font-size: 24px;">🏢</text>
+    <text x="210" y="300" style="font-size: 13px; fill: #cbd5e1;">General Electric (GE)</text>
+    <text x="210" y="320" style="font-size: 11px; fill: #94a3b8;">마케팅, 세일즈, 기획, 교육, PM - 15년</text>
+
+    <text x="170" y="350" style="font-size: 24px;">🎓</text>
+    <text x="210" y="350" style="font-size: 13px; fill: #cbd5e1;">아주대학교 초빙강사</text>
+    <text x="210" y="370" style="font-size: 11px; fill: #94a3b8;">'자기계발' 강의</text>
+  </g>
+
+  <!-- Books Section -->
+  <text x="400" y="420" text-anchor="middle" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">저서 6권</text>
+
+  <g>
+    <rect x="100" y="445" width="200" height="110" rx="8" fill="rgba(102, 126, 234, 0.15)" stroke="rgba(102, 126, 234, 0.3)" stroke-width="1.5"/>
+    <text x="200" y="470" text-anchor="middle" style="font-size: 12px; font-weight: bold; fill: #a5b4fc;">비즈니스 방법론</text>
+    <text x="200" y="490" text-anchor="middle" style="font-size: 10px; fill: #cbd5e1;">• GE 세일즈 노트</text>
+    <text x="200" y="510" text-anchor="middle" style="font-size: 10px; fill: #cbd5e1;">• 변화리더십 101</text>
+    <text x="200" y="530" text-anchor="middle" style="font-size: 10px; fill: #cbd5e1;">• 수퍼급 인재</text>
+  </g>
+
+  <g>
+    <rect x="320" y="445" width="160" height="110" rx="8" fill="rgba(74, 222, 128, 0.15)" stroke="rgba(74, 222, 128, 0.3)" stroke-width="1.5"/>
+    <text x="400" y="470" text-anchor="middle" style="font-size: 12px; font-weight: bold; fill: #86efac;">소통 & 조직</text>
+    <text x="400" y="490" text-anchor="middle" style="font-size: 10px; fill: #cbd5e1;">• 소통의 신</text>
+    <text x="400" y="510" text-anchor="middle" style="font-size: 10px; fill: #cbd5e1;">• 타운미팅</text>
+  </g>
+
+  <g>
+    <rect x="500" y="445" width="200" height="110" rx="8" fill="rgba(167, 139, 250, 0.15)" stroke="rgba(167, 139, 250, 0.3)" stroke-width="1.5"/>
+    <text x="600" y="470" text-anchor="middle" style="font-size: 12px; font-weight: bold; fill: #c4b5fd;">혁신 & 창의</text>
+    <text x="600" y="490" text-anchor="middle" style="font-size: 10px; fill: #cbd5e1;">• 1% 위대한 기업은</text>
+    <text x="600" y="510" text-anchor="middle" style="font-size: 10px; fill: #cbd5e1;">  어떻게 일하는가</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="400" y="585" text-anchor="middle" style="font-size: 13px; fill: #64748b;">
+    💼 SB 컨설팅 대표 | 📖 BBC 정회원 | 🎤 비즈니스 역량 전문 강사
+  </text>
+</svg>

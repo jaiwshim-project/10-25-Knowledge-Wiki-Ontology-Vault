@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1f3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1729;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glow7">
+      <stop offset="0%" style="stop-color:#fb923c;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#fb923c;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg7)"/>
+  <circle cx="400" cy="180" r="150" fill="url(#glow7)"/>
+
+  <!-- Title -->
+  <text x="400" y="80" text-anchor="middle" style="font-size: 56px;">👤</text>
+  <text x="400" y="140" text-anchor="middle" style="font-size: 36px; font-weight: bold; fill: #f1f5f9;">잭 웰치</text>
+  <text x="400" y="175" text-anchor="middle" style="font-size: 16px; fill: #fdba74;">Jack Welch</text>
+  <text x="400" y="200" text-anchor="middle" style="font-size: 14px; fill: #94a3b8;">20세기 최고의 경영자</text>
+
+  <!-- Timeline -->
+  <line x1="150" y1="250" x2="650" y2="250" stroke="rgba(251, 146, 60, 0.4)" stroke-width="3"/>
+  <circle cx="150" cy="250" r="8" fill="#fb923c"/>
+  <circle cx="650" cy="250" r="8" fill="#fb923c"/>
+
+  <text x="150" y="235" text-anchor="middle" style="font-size: 14px; font-weight: bold; fill: #fdba74;">1981</text>
+  <text x="650" y="235" text-anchor="middle" style="font-size: 14px; font-weight: bold; fill: #fdba74;">2001</text>
+  <text x="400" y="280" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #f1f5f9;">GE 회장 20년 재임</text>
+
+  <!-- Key Achievements -->
+  <g>
+    <rect x="100" y="320" width="250" height="200" rx="12" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(251, 146, 60, 0.3)" stroke-width="2"/>
+    <text x="225" y="350" text-anchor="middle" style="font-size: 18px; font-weight: bold; fill: #fdba74;">핵심 업적</text>
+    <line x1="120" y1="365" x2="330" y2="365" stroke="rgba(251, 146, 60, 0.2)" stroke-width="1"/>
+
+    <text x="125" y="395" style="font-size: 28px;">📈</text>
+    <text x="160" y="395" style="font-size: 13px; fill: #cbd5e1;">시가총액 30배 증가</text>
+    <text x="160" y="415" style="font-size: 11px; fill: #94a3b8;">$14B → $410B</text>
+
+    <text x="125" y="455" style="font-size: 28px;">🏆</text>
+    <text x="160" y="455" style="font-size: 13px; fill: #cbd5e1;">Fortune 선정</text>
+    <text x="160" y="475" style="font-size: 11px; fill: #94a3b8;">20세기 최고 경영자</text>
+
+    <text x="125" y="510" style="font-size: 28px;">🌐</text>
+    <text x="160" y="510" style="font-size: 13px; fill: #cbd5e1;">글로벌 확장</text>
+  </g>
+
+  <!-- Leadership Philosophy -->
+  <g>
+    <rect x="450" y="320" width="250" height="200" rx="12" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(167, 139, 250, 0.3)" stroke-width="2"/>
+    <text x="575" y="350" text-anchor="middle" style="font-size: 18px; font-weight: bold; fill: #c4b5fd;">리더십 철학</text>
+    <line x1="470" y1="365" x2="680" y2="365" stroke="rgba(167, 139, 250, 0.2)" stroke-width="1"/>
+
+    <text x="475" y="395" style="font-size: 28px;">🔥</text>
+    <text x="510" y="395" style="font-size: 13px; fill: #cbd5e1;">변화 리더십</text>
+    <text x="510" y="415" style="font-size: 11px; fill: #94a3b8;">9가지 핵심 자질</text>
+
+    <text x="475" y="455" style="font-size: 28px;">⚙️</text>
+    <text x="510" y="455" style="font-size: 13px; fill: #cbd5e1;">6시그마 도입</text>
+    <text x="510" y="475" style="font-size: 11px; fill: #94a3b8;">품질 혁신</text>
+
+    <text x="475" y="510" style="font-size: 28px;">⭐</text>
+    <text x="510" y="510" style="font-size: 13px; fill: #cbd5e1;">4E + V 모델</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="400" y="565" text-anchor="middle" style="font-size: 13px; fill: #64748b;">
+    GE를 2류 기업에서 세계 최강 조직으로 변화시킨 전설적 CEO
+  </text>
+</svg>
