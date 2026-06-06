@@ -1,0 +1,230 @@
+{
+  "main": {
+    "id": "3b0d3393b39dc7a8",
+    "type": "split",
+    "children": [
+      {
+        "id": "1b34720094491327",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3ce25a5e4fd42080",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02_Concepts/4E+V_인재육성모델.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "4E+V_인재육성모델"
+            }
+          },
+          {
+            "id": "60cc0051e28957d2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02_Concepts/소통의_신.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "소통의_신"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "70a53b3359ca0d77",
+    "type": "split",
+    "children": [
+      {
+        "id": "f0580371d6fd5fe2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1c7b2199008fcfa2",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "파일 탐색기"
+            }
+          },
+          {
+            "id": "f410b71952c5d223",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "검색"
+            }
+          },
+          {
+            "id": "c81b8174d3f46eed",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "북마크"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "dd54bfa9636e4804",
+    "type": "split",
+    "children": [
+      {
+        "id": "e61a2b88b7222a1a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0eead00a383d3f16",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "02_Concepts/소통의_신.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "소통의_신 의 백링크"
+            }
+          },
+          {
+            "id": "5610740d04956fa9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "02_Concepts/소통의_신.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "소통의_신 의 나가는 링크"
+            }
+          },
+          {
+            "id": "0c862fe697dd17eb",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "태그"
+            }
+          },
+          {
+            "id": "048fd270de1bf08d",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "모든 속성"
+            }
+          },
+          {
+            "id": "c8769591c0780beb",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "02_Concepts/소통의_신.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "소통의_신 의 개요"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:빠른 전환기 열기": false,
+      "graph:그래프 뷰 열기": false,
+      "canvas:새 캔버스 만들기": false,
+      "daily-notes:오늘의 일일 노트 열기": false,
+      "templates:템플릿 삽입": false,
+      "command-palette:명령어 팔레트 열기": false,
+      "bases:새 베이스 생성하기": false
+    }
+  },
+  "active": "60cc0051e28957d2",
+  "lastOpenFiles": [
+    "knowledge_vault_premium.html.tmp.31444.661f05a60176",
+    "index.html.tmp.31444.ae3708622c60",
+    "index.html.tmp.31444.f9f17984ab1d",
+    "index.html.tmp.31444.0d41ee5cb9fc",
+    "index.html.tmp.31444.b40f1a0d95f5",
+    "index.html.tmp.31444.adefb7e1ff0f",
+    "index.html.tmp.31444.76b04b597eb6",
+    "index.html.tmp.31444.f9eb945d37a9",
+    "index.html.tmp.31444.e8c336475a4f",
+    "index.html.tmp.31444.9576f8e21e48",
+    "index.html.tmp.31444.58782ce8e2c0",
+    "wiki-ontology-transformation.md",
+    "SNS 소통.md",
+    "02_Concepts/소통의_신.md",
+    "소셜미디어.md",
+    "00_Index/Home.md",
+    "README.md",
+    "04_Customers/잭웰치.md",
+    "04_Customers/GE_General_Electric.md",
+    "04_Customers/심재우_저자.md",
+    "01_Projects/GE_비즈니스_방법론.md",
+    "10_Ontology/graph_analysis_report.md",
+    "03_Methodologies/변화리더십_101.md",
+    "02_Concepts/4E+V_인재육성모델.md",
+    "03_Methodologies/세일즈_프로세스_13가지_성공법칙.md",
+    "00_Index/knowledge_summary.md",
+    "10_Ontology/vector_db_setup.md"
+  ]
+}
