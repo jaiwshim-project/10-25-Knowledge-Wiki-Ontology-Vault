@@ -530,7 +530,13 @@
             // Knowledge Vault로 이동하면서 해당 문서 검색
             const doc = documents.find(d => d.id === docId);
             if (doc) {
-                window.location.href = `knowledge_vault_premium.html?search=${encodeURIComponent(doc.title)}`;
+                console.log('Doc ID:', docId);
+                console.log('Doc Title:', doc.title);
+                const url = `knowledge_vault_premium.html?search=${encodeURIComponent(doc.title)}`;
+                console.log('Navigating to:', url);
+                window.location.href = url;
+            } else {
+                console.error('Document not found:', docId);
             }
         }
 
