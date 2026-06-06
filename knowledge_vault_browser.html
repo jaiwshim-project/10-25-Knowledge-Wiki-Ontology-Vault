@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Vault Browser - Obsidian Style</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: #202020;
+            color: #dcddde;
+            overflow: hidden;
+        }
+
+        /* Layout */
+        .app-container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        /* Left Sidebar */
+        .left-sidebar {
+            width: 280px;
+            background: #1e1e1e;
+            border-right: 1px solid #2d2d2d;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            padding: 15px;
+            border-bottom: 1px solid #2d2d2d;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .vault-title {
+            font-size: 16px;
+            color: #7f6df2;
+            margin-bottom: 5px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 8px 12px;
+            background: #2d2d2d;
+            border: 1px solid #3d3d3d;
+            border-radius: 4px;
+            color: #dcddde;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #7f6df2;
+        }
+
+        .file-tree {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .folder {
+            margin: 5px 0;
+        }
+
+        .folder-header {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .folder-header:hover {
+            background: #2d2d2d;
+        }
+
+        .folder-icon {
+            font-size: 12px;
+        }
+
+        .file-list {
+            margin-left: 20px;
+            margin-top: 3px;
+        }
+
+        .file-item {
+            cursor: pointer;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .file-item:hover {
+            background: #2d2d2d;
+        }
+
+        .file-item.active {
+            background: #7f6df2;
+            color: white;
+        }
+
+        .file-icon {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .top-bar {
+            height: 50px;
+            background: #1e1e1e;
+            border-bottom: 1px solid #2d2d2d;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            gap: 10px;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 5px;
+        }
+
+        .view-button {
+            padding: 6px 12px;
+            background: #2d2d2d;
+            border: 1px solid #3d3d3d;
+            border-radius: 4px;
+            color: #dcddde;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .view-button:hover {
+            background: #3d3d3d;
+        }
+
+        .view-button.active {
+            background: #7f6df2;
+            border-color: #7f6df2;
+            color: white;
+        }
+
+        .breadcrumb {
+            flex: 1;
+            font-size: 13px;
+            color: #888;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .breadcrumb-item {
+            cursor: pointer;
+        }
+
+        .breadcrumb-item:hover {
+            color: #7f6df2;
+        }
+
+        .content-area {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Reading View */
+        .reading-view {
+            height: 100%;
+            overflow-y: auto;
+            padding: 40px;
+            display: none;
+        }
+
+        .reading-view.active {
+            display: block;
+        }
+
+        .note-title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #dcddde;
+        }
+
+        .note-metadata {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .metadata-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .note-content {
+            max-width: 800px;
+            line-height: 1.6;
+        }
+
+        .note-content h1 {
+            font-size: 28px;
+            margin: 30px 0 15px 0;
+            color: #dcddde;
+        }
+
+        .note-content h2 {
+            font-size: 22px;
+            margin: 25px 0 12px 0;
+            color: #dcddde;
+        }
+
+        .note-content h3 {
+            font-size: 18px;
+            margin: 20px 0 10px 0;
+            color: #dcddde;
+        }
+
+        .note-content p {
+            margin: 10px 0;
+        }
+
+        .note-content ul, .note-content ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+
+        .note-content li {
+            margin: 5px 0;
+        }
+
+        .note-content a {
+            color: #7f6df2;
+            text-decoration: none;
+        }
+
+        .note-content a:hover {
+            text-decoration: underline;
+        }
+
+        .note-content code {
+            background: #2d2d2d;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .note-content pre {
+            background: #2d2d2d;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .note-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .note-content blockquote {
+            border-left: 3px solid #7f6df2;
+            padding-left: 15px;
+            margin: 15px 0;
+            color: #aaa;
+        }
+
+        .note-content table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+        }
+
+        .note-content th, .note-content td {
+            border: 1px solid #3d3d3d;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        .note-content th {
+            background: #2d2d2d;
+            font-weight: bold;
+        }
+
+        /* Internal Links */
+        .internal-link {
+            color: #7f6df2;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .internal-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Graph View */
+        .graph-view {
+            height: 100%;
+            position: relative;
+            display: none;
+        }
+
+        .graph-view.active {
+            display: block;
+        }
+
+        #graph-canvas {
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+        }
+
+        .graph-controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(30, 30, 30, 0.95);
+            border: 1px solid #3d3d3d;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .control-button {
+            padding: 8px 15px;
+            background: #2d2d2d;
+            border: 1px solid #3d3d3d;
+            border-radius: 4px;
+            color: #dcddde;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .control-button:hover {
+            background: #3d3d3d;
+        }
+
+        /* Right Sidebar */
+        .right-sidebar {
+            width: 300px;
+            background: #1e1e1e;
+            border-left: 1px solid #2d2d2d;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .sidebar-tabs {
+            display: flex;
+            border-bottom: 1px solid #2d2d2d;
+        }
+
+        .sidebar-tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 13px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .sidebar-tab:hover {
+            background: #2d2d2d;
+        }
+
+        .sidebar-tab.active {
+            border-bottom-color: #7f6df2;
+            color: #7f6df2;
+        }
+
+        .sidebar-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+        }
+
+        .info-section {
+            margin-bottom: 20px;
+        }
+
+        .info-title {
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 8px;
+            color: #7f6df2;
+        }
+
+        .info-value {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.5;
+        }
+
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .tag {
+            background: #2d2d2d;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #7f6df2;
+            cursor: pointer;
+        }
+
+        .tag:hover {
+            background: #3d3d3d;
+        }
+
+        .backlink-item {
+            padding: 8px;
+            background: #2d2d2d;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .backlink-item:hover {
+            background: #3d3d3d;
+        }
+
+        .local-graph-mini {
+            height: 200px;
+            background: #2d2d2d;
+            border-radius: 4px;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3d3d3d;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4d4d4d;
+        }
+
+        /* Loading */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #888;
+        }
+
+        /* Empty State */
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #888;
+            gap: 10px;
+        }
+
+        .empty-icon {
+            font-size: 48px;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Left Sidebar -->
+        <div class="left-sidebar">
+            <div class="sidebar-header">
+                <div class="vault-title">📚 Knowledge Vault</div>
+                <input type="text" class="search-box" id="searchBox" placeholder="검색... (Ctrl+F)">
+            </div>
+            <div class="file-tree" id="fileTree"></div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="top-bar">
+                <div class="view-toggle">
+                    <button class="view-button active" data-view="reading">📄 읽기</button>
+                    <button class="view-button" data-view="graph">🌐 그래프</button>
+                </div>
+                <div class="breadcrumb" id="breadcrumb"></div>
+            </div>
+
+            <div class="content-area">
+                <!-- Reading View -->
+                <div class="reading-view active" id="readingView">
+                    <div class="empty-state">
+                        <div class="empty-icon">📄</div>
+                        <div>왼쪽에서 노트를 선택하세요</div>
+                    </div>
+                </div>
+
+                <!-- Graph View -->
+                <div class="graph-view" id="graphView">
+                    <svg id="graph-canvas"></svg>
+                    <div class="graph-controls">
+                        <button class="control-button" onclick="resetGraphZoom()">🔍 리셋</button>
+                        <button class="control-button" onclick="centerGraph()">⊙ 중앙</button>
+                        <button class="control-button" onclick="toggleGraphLabels()">🏷️ 라벨</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="right-sidebar">
+            <div class="sidebar-tabs">
+                <div class="sidebar-tab active" data-tab="info">정보</div>
+                <div class="sidebar-tab" data-tab="backlinks">백링크</div>
+                <div class="sidebar-tab" data-tab="outline">아웃라인</div>
+            </div>
+            <div class="sidebar-content" id="rightSidebarContent">
+                <div class="info-section">
+                    <div class="info-title">파일 정보</div>
+                    <div class="info-value" id="fileInfo">노트를 선택하세요</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global State
+        const state = {
+            currentView: 'reading',
+            currentFile: null,
+            files: {},
+            graph: null,
+            searchQuery: ''
+        };
+
+        // File Structure (from actual vault)
+        const vaultStructure = {
+            "00_Index": ["Home.md", "knowledge_summary.md"],
+            "01_Projects": ["GE_비즈니스_방법론.md"],
+            "02_Concepts": ["4E+V_인재육성모델.md", "소통의_신.md"],
+            "03_Methodologies": ["세일즈_프로세스_13가지_성공법칙.md", "변화리더십_101.md"],
+            "04_Customers": ["GE_General_Electric.md", "잭웰치.md", "심재우_저자.md"],
+            "10_Ontology": ["ontology_nodes.csv", "ontology_edges.csv", "ontology_graph.json"],
+            "11_Review": ["review_queue.csv"]
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFileTree();
+            setupEventListeners();
+            loadGraphData();
+        });
+
+        // Render File Tree
+        function renderFileTree() {
+            const fileTree = document.getElementById('fileTree');
+            fileTree.innerHTML = '';
+
+            Object.keys(vaultStructure).forEach(folder => {
+                const folderDiv = document.createElement('div');
+                folderDiv.className = 'folder';
+
+                const folderHeader = document.createElement('div');
+                folderHeader.className = 'folder-header';
+                folderHeader.innerHTML = `<span class="folder-icon">📁</span> ${folder}`;
+                folderHeader.onclick = () => {
+                    const fileList = folderDiv.querySelector('.file-list');
+                    fileList.style.display = fileList.style.display === 'none' ? 'block' : 'none';
+                };
+
+                const fileList = document.createElement('div');
+                fileList.className = 'file-list';
+
+                vaultStructure[folder].forEach(file => {
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'file-item';
+                    fileItem.innerHTML = `<span class="file-icon">📄</span> ${file}`;
+                    fileItem.onclick = () => openFile(folder, file);
+                    fileList.appendChild(fileItem);
+                });
+
+                folderDiv.appendChild(folderHeader);
+                folderDiv.appendChild(fileList);
+                fileTree.appendChild(folderDiv);
+            });
+        }
+
+        // Open File
+        async function openFile(folder, filename) {
+            // Update active state
+            document.querySelectorAll('.file-item').forEach(el => el.classList.remove('active'));
+            event.target.closest('.file-item').classList.add('active');
+
+            // Update breadcrumb
+            document.getElementById('breadcrumb').innerHTML = `
+                <span class="breadcrumb-item">Home</span> /
+                <span class="breadcrumb-item">${folder}</span> /
+                <span class="breadcrumb-item">${filename}</span>
+            `;
+
+            // Load file content
+            const filePath = `../${folder}/${filename}`;
+
+            try {
+                const response = await fetch(filePath);
+                const content = await response.text();
+
+                if (filename.endsWith('.md')) {
+                    renderMarkdown(content, filename);
+                } else if (filename.endsWith('.csv')) {
+                    renderCSV(content, filename);
+                } else if (filename.endsWith('.json')) {
+                    renderJSON(content, filename);
+                }
+
+                state.currentFile = { folder, filename, content };
+                updateRightSidebar();
+            } catch (error) {
+                console.error('File load error:', error);
+                document.getElementById('readingView').innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">⚠️</div>
+                        <div>파일을 불러올 수 없습니다</div>
+                        <div style="font-size: 12px; color: #666;">${error.message}</div>
+                    </div>
+                `;
+            }
+        }
+
+        // Render Markdown
+        function renderMarkdown(content, filename) {
+            // Parse frontmatter
+            let body = content;
+            let frontmatter = {};
+
+            if (content.startsWith('---')) {
+                const parts = content.split('---');
+                if (parts.length >= 3) {
+                    const fmText = parts[1];
+                    body = parts.slice(2).join('---');
+
+                    // Simple YAML parsing
+                    fmText.split('\n').forEach(line => {
+                        const match = line.match(/^(\w+):\s*(.+)$/);
+                        if (match) {
+                            frontmatter[match[1]] = match[2];
+                        }
+                    });
+                }
+            }
+
+            // Convert markdown to HTML
+            const html = marked.parse(body);
+
+            // Replace internal links [[link]] with clickable links
+            const processedHtml = html.replace(/\[\[([^\]]+)\]\]/g, (match, link) => {
+                return `<a href="#" class="internal-link" data-link="${link}">${link}</a>`;
+            });
+
+            // Render
+            const readingView = document.getElementById('readingView');
+            readingView.innerHTML = `
+                <div class="note-title">${frontmatter.title || filename.replace('.md', '')}</div>
+                <div class="note-metadata">
+                    ${frontmatter.type ? `<div class="metadata-item">📑 ${frontmatter.type}</div>` : ''}
+                    ${frontmatter.domain ? `<div class="metadata-item">🏷️ ${frontmatter.domain}</div>` : ''}
+                    ${frontmatter.created ? `<div class="metadata-item">📅 ${frontmatter.created}</div>` : ''}
+                </div>
+                <div class="note-content">${processedHtml}</div>
+            `;
+
+            // Add click handlers for internal links
+            readingView.querySelectorAll('.internal-link').forEach(link => {
+                link.onclick = (e) => {
+                    e.preventDefault();
+                    const targetFile = link.dataset.link + '.md';
+                    // Find and open the target file
+                    for (const [folder, files] of Object.entries(vaultStructure)) {
+                        if (files.includes(targetFile)) {
+                            openFile(folder, targetFile);
+                            break;
+                        }
+                    }
+                };
+            });
+        }
+
+        // Render CSV
+        function renderCSV(content, filename) {
+            const lines = content.split('\n');
+            const headers = lines[0].split(',');
+            const rows = lines.slice(1).filter(line => line.trim());
+
+            let html = `
+                <div class="note-title">${filename}</div>
+                <div class="note-metadata">
+                    <div class="metadata-item">📊 CSV 파일</div>
+                    <div class="metadata-item">📝 ${rows.length}개 행</div>
+                </div>
+                <div class="note-content">
+                    <table>
+                        <thead>
+                            <tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>
+                        </thead>
+                        <tbody>
+                            ${rows.slice(0, 50).map(row => {
+                                const cols = row.split(',');
+                                return `<tr>${cols.map(c => `<td>${c}</td>`).join('')}</tr>`;
+                            }).join('')}
+                        </tbody>
+                    </table>
+                    ${rows.length > 50 ? `<p style="color: #888; margin-top: 10px;">처음 50개 행만 표시됨</p>` : ''}
+                </div>
+            `;
+
+            document.getElementById('readingView').innerHTML = html;
+        }
+
+        // Render JSON
+        function renderJSON(content, filename) {
+            try {
+                const data = JSON.parse(content);
+                const formatted = JSON.stringify(data, null, 2);
+
+                const html = `
+                    <div class="note-title">${filename}</div>
+                    <div class="note-metadata">
+                        <div class="metadata-item">📊 JSON 파일</div>
+                    </div>
+                    <div class="note-content">
+                        <pre><code>${formatted}</code></pre>
+                    </div>
+                `;
+
+                document.getElementById('readingView').innerHTML = html;
+            } catch (error) {
+                document.getElementById('readingView').innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">⚠️</div>
+                        <div>JSON 파싱 오류</div>
+                    </div>
+                `;
+            }
+        }
+
+        // Update Right Sidebar
+        function updateRightSidebar() {
+            if (!state.currentFile) return;
+
+            const { filename, content } = state.currentFile;
+
+            // Update file info
+            document.getElementById('fileInfo').innerHTML = `
+                <div style="margin-bottom: 8px;"><strong>파일명:</strong> ${filename}</div>
+                <div style="margin-bottom: 8px;"><strong>크기:</strong> ${(content.length / 1024).toFixed(2)} KB</div>
+                <div><strong>라인:</strong> ${content.split('\n').length}</div>
+            `;
+
+            // Extract tags
+            const tagMatches = content.match(/tags:\s*\n([\s\S]*?)(?:\n\w+:|---)/);
+            if (tagMatches) {
+                const tags = tagMatches[1].match(/- (.+)/g);
+                if (tags) {
+                    const tagHtml = `
+                        <div class="info-section">
+                            <div class="info-title">태그</div>
+                            <div class="tag-list">
+                                ${tags.map(t => `<div class="tag">${t.replace('- ', '')}</div>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                    document.getElementById('fileInfo').insertAdjacentHTML('afterend', tagHtml);
+                }
+            }
+        }
+
+        // Setup Event Listeners
+        function setupEventListeners() {
+            // View toggle
+            document.querySelectorAll('.view-button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const view = btn.dataset.view;
+                    switchView(view);
+                });
+            });
+
+            // Search
+            document.getElementById('searchBox').addEventListener('input', (e) => {
+                state.searchQuery = e.target.value.toLowerCase();
+                filterFileTree();
+            });
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                if (e.ctrlKey && e.key === 'f') {
+                    e.preventDefault();
+                    document.getElementById('searchBox').focus();
+                }
+            });
+
+            // Sidebar tabs
+            document.querySelectorAll('.sidebar-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                });
+            });
+        }
+
+        // Switch View
+        function switchView(view) {
+            document.querySelectorAll('.view-button').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.view === view);
+            });
+
+            document.getElementById('readingView').classList.toggle('active', view === 'reading');
+            document.getElementById('graphView').classList.toggle('active', view === 'graph');
+
+            state.currentView = view;
+
+            if (view === 'graph' && !state.graph) {
+                initGraph();
+            }
+        }
+
+        // Filter File Tree
+        function filterFileTree() {
+            const query = state.searchQuery;
+            document.querySelectorAll('.file-item').forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(query) ? 'flex' : 'none';
+            });
+        }
+
+        // Load Graph Data
+        async function loadGraphData() {
+            try {
+                const response = await fetch('../10_Ontology/ontology_graph.json');
+                state.graphData = await response.json();
+            } catch (error) {
+                console.error('Graph data load error:', error);
+            }
+        }
+
+        // Initialize Graph (simplified from knowledge_graph.html)
+        function initGraph() {
+            if (!state.graphData) {
+                document.getElementById('graph-canvas').innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="#666">그래프 데이터를 불러오는 중...</text>';
+                return;
+            }
+
+            // Use the same graph implementation from knowledge_graph.html
+            // (Simplified version for demo)
+            const svg = d3.select('#graph-canvas');
+            const width = svg.node().clientWidth;
+            const height = svg.node().clientHeight;
+
+            svg.selectAll('*').remove();
+
+            const g = svg.append('g');
+
+            const simulation = d3.forceSimulation(state.graphData.nodes)
+                .force('link', d3.forceLink(state.graphData.edges).id(d => d.id).distance(100))
+                .force('charge', d3.forceManyBody().strength(-300))
+                .force('center', d3.forceCenter(width / 2, height / 2));
+
+            const link = g.append('g')
+                .selectAll('line')
+                .data(state.graphData.edges)
+                .enter().append('line')
+                .attr('stroke', '#666')
+                .attr('stroke-width', 2);
+
+            const node = g.append('g')
+                .selectAll('circle')
+                .data(state.graphData.nodes)
+                .enter().append('circle')
+                .attr('r', 10)
+                .attr('fill', '#7f6df2')
+                .call(d3.drag()
+                    .on('start', dragstarted)
+                    .on('drag', dragged)
+                    .on('end', dragended));
+
+            const label = g.append('g')
+                .selectAll('text')
+                .data(state.graphData.nodes)
+                .enter().append('text')
+                .text(d => d.label)
+                .attr('font-size', 10)
+                .attr('fill', '#dcddde')
+                .attr('text-anchor', 'middle')
+                .attr('dy', -15);
+
+            simulation.on('tick', () => {
+                link
+                    .attr('x1', d => d.source.x)
+                    .attr('y1', d => d.source.y)
+                    .attr('x2', d => d.target.x)
+                    .attr('y2', d => d.target.y);
+
+                node
+                    .attr('cx', d => d.x)
+                    .attr('cy', d => d.y);
+
+                label
+                    .attr('x', d => d.x)
+                    .attr('y', d => d.y);
+            });
+
+            function dragstarted(event, d) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                d.fx = d.x;
+                d.fy = d.y;
+            }
+
+            function dragged(event, d) {
+                d.fx = event.x;
+                d.fy = event.y;
+            }
+
+            function dragended(event, d) {
+                if (!event.active) simulation.alphaTarget(0);
+                d.fx = null;
+                d.fy = null;
+            }
+
+            // Zoom
+            svg.call(d3.zoom()
+                .scaleExtent([0.1, 4])
+                .on('zoom', (event) => {
+                    g.attr('transform', event.transform);
+                }));
+
+            state.graph = { svg, g, simulation };
+        }
+
+        // Graph controls
+        function resetGraphZoom() {
+            if (state.graph) {
+                state.graph.svg.transition().duration(750).call(
+                    d3.zoom().transform,
+                    d3.zoomIdentity
+                );
+            }
+        }
+
+        function centerGraph() {
+            if (state.graph) {
+                const bounds = state.graph.g.node().getBBox();
+                const width = state.graph.svg.node().clientWidth;
+                const height = state.graph.svg.node().clientHeight;
+                const scale = 0.8 / Math.max(bounds.width / width, bounds.height / height);
+                const translate = [width / 2 - scale * (bounds.x + bounds.width / 2), height / 2 - scale * (bounds.y + bounds.height / 2)];
+
+                state.graph.svg.transition().duration(750).call(
+                    d3.zoom().transform,
+                    d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)
+                );
+            }
+        }
+
+        function toggleGraphLabels() {
+            if (state.graph) {
+                const labels = state.graph.g.selectAll('text');
+                const currentOpacity = labels.style('opacity');
+                labels.transition().style('opacity', currentOpacity === '0' ? '1' : '0');
+            }
+        }
+
+        // Auto-open Home.md on load
+        setTimeout(() => {
+            openFile('00_Index', 'Home.md');
+        }, 100);
+    </script>
+</body>
+</html>

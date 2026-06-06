@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GE 비즈니스 방법론 6권을 온톨로지 지식 그래프로 구조화한 Obsidian 스타일 위키. 변화리더십, 세일즈 프로세스, 인재육성 4E+V 모델 포함.">
+    <meta name="keywords" content="Knowledge Vault, 온톨로지, 지식 그래프, GE 방법론, 심재우, 변화리더십, 세일즈, 4E+V, Obsidian, Wiki">
+    <meta name="author" content="심재우">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Knowledge Wiki & Ontology Vault - 심재우 저서">
+    <meta property="og:description" content="GE 비즈니스 방법론을 온톨로지 지식 그래프로 구조화한 프리미엄 지식 저장소">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/667eea/ffffff?text=Knowledge+Vault">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Knowledge Wiki & Ontology Vault">
+    <meta name="twitter:description" content="GE 비즈니스 방법론 온톨로지 지식 그래프">
+
+    <title>심재우 저서 Knowledge Wiki & Ontology Vault</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+            background: linear-gradient(135deg, #1a1f3a 0%, #0f1729 50%, #1a1f3a 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(118, 75, 162, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: rgba(26, 31, 58, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(102, 126, 234, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            text-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+        }
+
+        .nav-logo-icon {
+            font-size: 28px;
+            filter: drop-shadow(0 2px 8px rgba(102, 126, 234, 0.6));
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #a78bfa;
+            text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea 0%, #a78bfa 100%);
+            transition: width 0.3s ease;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.6);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        /* Main Content */
+        .main-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            min-height: calc(100vh - 200px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 20px;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(102, 126, 234, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            padding: 60px 50px;
+            text-align: center;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .logo {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-size: 36px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            font-weight: 800;
+            text-shadow: none;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-radius: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 38px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.2));
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #718096;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow:
+                0 4px 15px rgba(102, 126, 234, 0.5),
+                0 0 20px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 6px 25px rgba(102, 126, 234, 0.6),
+                0 0 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #667eea;
+            border: 2px solid #667eea;
+            box-shadow: 0 2px 10px rgba(102, 126, 234, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .features {
+            margin-top: 50px;
+            text-align: left;
+            background: rgba(26, 31, 58, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .features h2 {
+            font-size: 20px;
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .feature-icon {
+            font-size: 20px;
+        }
+
+        /* Use Cases Section */
+        .use-cases {
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(102, 126, 234, 0.2);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .use-cases h2 {
+            font-size: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .use-case-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.08) 100%);
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(102, 126, 234, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 8px 25px rgba(102, 126, 234, 0.3),
+                0 0 20px rgba(102, 126, 234, 0.2);
+            border-color: #a78bfa;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.12) 100%);
+        }
+
+        .use-case-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .use-case-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .use-case-subtitle {
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .use-case-desc {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .use-case-results {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .use-case-result-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: #718096;
+            margin-bottom: 10px;
+        }
+
+        .use-case-result-item {
+            font-size: 13px;
+            color: #2d3748;
+            margin-bottom: 5px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .use-case-result-item::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+        }
+
+        .use-case-stat {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Premium Footer */
+        .footer {
+            background: rgba(26, 31, 58, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 60px 0 30px;
+            margin-top: 80px;
+            border-top: 1px solid rgba(102, 126, 234, 0.3);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(102, 126, 234, 0.5);
+        }
+
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #a78bfa;
+            text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f7fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a5568;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-copyright {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+
+        .footer-copyright a {
+            color: #a78bfa;
+            transition: all 0.3s ease;
+        }
+
+        .footer-copyright a:hover {
+            color: #c4b5fd;
+            text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: #a78bfa;
+            text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+        }
+
+        .footer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .container {
+                padding: 40px 30px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .stats {
+                gap: 20px;
+            }
+
+            .stat-number {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="nav-logo-icon">📚</span>
+                <span>Knowledge Wiki & Ontology Vault</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">홈</a></li>
+                <li><a href="obsidian.html" class="nav-link">Obsidian</a></li>
+                <li><a href="wiki.html" class="nav-link">Wiki</a></li>
+                <li><a href="ontology.html" class="nav-link">Ontology</a></li>
+                <li><a href="knowledge_vault_premium.html" class="nav-btn">시작하기</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <div class="container">
+        <div class="logo">📚</div>
+        <h1>Knowledge Wiki & Ontology Vault</h1>
+        <p class="subtitle">
+            심재우 저서 GE 비즈니스 방법론 6권을<br>
+            온톨로지 지식 그래프로 구조화한 Obsidian 스타일 위키
+        </p>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number">38</span>
+                <span class="stat-label">지식 노드</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">50</span>
+                <span class="stat-label">관계</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">9</span>
+                <span class="stat-label">Markdown 노트</span>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <a href="knowledge_vault_premium.html" class="btn btn-primary">
+                <span>🚀</span>
+                <span>Premium Vault 열기</span>
+            </a>
+            <a href="knowledge_vault_standalone.html" class="btn btn-secondary">
+                <span>📱</span>
+                <span>Basic Vault</span>
+            </a>
+            <a href="10_Ontology/knowledge_graph.html" class="btn btn-secondary">
+                <span>🌐</span>
+                <span>그래프</span>
+            </a>
+            <a href="README.md" class="btn btn-secondary">
+                <span>📖</span>
+                <span>가이드</span>
+            </a>
+        </div>
+
+        <div class="features">
+            <h2>📋 Wiki-Ontology Transformation 스킬</h2>
+            <div style="background: rgba(255, 255, 255, 0.95); border-radius: 12px; padding: 20px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <h3 style="margin: 0; color: #2d3748; font-size: 18px;">📄 스킬 설명서</h3>
+                    <a href="wiki-ontology-transformation.md" download style="background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); color: white; padding: 8px 16px; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(72, 187, 120, 0.3); text-decoration: none; display: inline-block;">
+                        💾 다운로드
+                    </a>
+                </div>
+                <p style="margin: 0 0 10px 0; color: #4a5568; font-size: 14px; line-height: 1.6;">
+                    폴더 자료를 Obsidian Wiki와 온톨로지 지식DB로 전환하는 스킬입니다 (1152줄).
+                </p>
+                <p style="margin: 0; color: #718096; font-size: 12px; background: #f7fafc; padding: 10px; border-radius: 6px; font-family: 'Courier New', monospace;">
+                    📂 파일 위치: C:\000 자료 모음\09 심재우 저서\wiki-ontology-transformation.md
+                </p>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>✨ 주요 기능</h2>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <span class="feature-icon">📁</span>
+                    <span>파일 트리 탐색</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔍</span>
+                    <span>실시간 검색</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📄</span>
+                    <span>Markdown 렌더링</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔗</span>
+                    <span>내부 링크 [[링크]]</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🌐</span>
+                    <span>지식 그래프 시각화</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎨</span>
+                    <span>다크 테마 UI</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Use Cases Section -->
+        <div class="use-cases">
+            <h2>💼 실제 사용 사례</h2>
+            <p style="text-align: center; color: #718096; margin-bottom: 30px;">
+                Knowledge Wiki & Ontology Vault + AI = 수주일 작업을 2-3일로 압축
+            </p>
+
+            <div class="use-case-grid">
+                <!-- Case 1: 영업팀장 -->
+                <div class="use-case-card">
+                    <span class="use-case-icon">💼</span>
+                    <div class="use-case-title">영업팀장 김대리</div>
+                    <div class="use-case-subtitle">신입사원 교육 자료 제작</div>
+                    <div class="use-case-desc">
+                        <strong>문제:</strong> 신입 5명 입사 예정, 세일즈 교육 자료 필요 (2일 남음)<br><br>
+                        <strong>해결:</strong><br>
+                        • Knowledge Wiki & Ontology Vault에서 "세일즈 프로세스 13단계" 탐색<br>
+                        • AIDAS 법칙, Boss Managing 연결 학습<br>
+                        • 인포그래픽 뷰로 시각 자료 확인<br>
+                        • Claude에게 "3일 교육 커리큘럼" 요청<br>
+                        • SVG 내보내기로 PPT 제작
+                    </div>
+                    <div class="use-case-results">
+                        <div class="use-case-result-title">📈 결과물 (2일 완성):</div>
+                        <div class="use-case-result-item">3일 교육 커리큘럼 (6페이지)</div>
+                        <div class="use-case-result-item">실습 시나리오 3개</div>
+                        <div class="use-case-result-item">평가 체크리스트</div>
+                        <div class="use-case-result-item">교육 PPT 35슬라이드</div>
+                        <span class="use-case-stat">⏱️ 1주일 → 2일로 단축</span>
+                        <span class="use-case-stat">🎯 신입 4/5명 첫 달 목표 달성</span>
+                    </div>
+                </div>
+
+                <!-- Case 2: HR 담당자 -->
+                <div class="use-case-card">
+                    <span class="use-case-icon">👥</span>
+                    <div class="use-case-title">HR 담당자 박과장</div>
+                    <div class="use-case-subtitle">인재 평가 시스템 구축</div>
+                    <div class="use-case-desc">
+                        <strong>문제:</strong> CEO 지시 "GE식 4E+V 인재모델 도입" (1주일 내)<br><br>
+                        <strong>해결:</strong><br>
+                        • "4E+V" 검색으로 개념 학습<br>
+                        • 온톨로지 그래프로 관계 파악<br>
+                        • Energy, Energize, Edge, Execute, Values 이해<br>
+                        • Claude에게 "면접 질문 25개" 요청<br>
+                        • 360도 평가 시스템 설계
+                    </div>
+                    <div class="use-case-results">
+                        <div class="use-case-result-title">📈 결과물 (1주일 완성):</div>
+                        <div class="use-case-result-item">채용 면접 질문 25개 (각 5개씩)</div>
+                        <div class="use-case-result-item">360도 평가 항목 (25개)</div>
+                        <div class="use-case-result-item">직급별 승진 기준표</div>
+                        <div class="use-case-result-item">개인 개발 계획 템플릿</div>
+                        <span class="use-case-stat">📊 채용 적합도 +35%</span>
+                        <span class="use-case-stat">📉 퇴사율 15% → 9%</span>
+                    </div>
+                </div>
+
+                <!-- Case 3: 컨설턴트 -->
+                <div class="use-case-card">
+                    <span class="use-case-icon">🎯</span>
+                    <div class="use-case-title">컨설턴트 이대표</div>
+                    <div class="use-case-subtitle">변화관리 워크숍 설계</div>
+                    <div class="use-case-desc">
+                        <strong>문제:</strong> 대기업 100명 대상 "변화리더십 워크숍" 제안 (3일 내)<br><br>
+                        <strong>해결:</strong><br>
+                        • "변화리더십 101" + "위크아웃" + "액션러닝" 탐색<br>
+                        • 9가지 핵심 리더십 체험 활동 확인<br>
+                        • 그래프 뷰로 전체 관계망 파악<br>
+                        • Claude에게 "2일 워크숍 프로그램" 요청<br>
+                        • 퍼실리테이터 가이드 생성
+                    </div>
+                    <div class="use-case-results">
+                        <div class="use-case-result-title">📈 결과물 (3일 완성):</div>
+                        <div class="use-case-result-item">제안서 15페이지</div>
+                        <div class="use-case-result-item">2일 워크숍 상세 프로그램</div>
+                        <div class="use-case-result-item">퍼실리테이터 가이드 100페이지</div>
+                        <div class="use-case-result-item">Work-Out 템플릿 세트</div>
+                        <span class="use-case-stat">💰 계약 체결 3,800만원</span>
+                        <span class="use-case-stat">🎉 고객사 절감액 23억원</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary -->
+            <div style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; color: white; text-align: center;">
+                <h3 style="font-size: 20px; margin-bottom: 15px; font-weight: 700;">💡 핵심 공식</h3>
+                <p style="font-size: 16px; line-height: 1.8; margin: 0;">
+                    <strong>Knowledge Wiki & Ontology Vault</strong> (구조화된 지식)<br>
+                    +<br>
+                    <strong>Claude AI</strong> (생성 AI)<br>
+                    +<br>
+                    <strong>사용자 전문성</strong><br>
+                    ━━━━━━━━━━━━━━━━━<br>
+                    = <strong>즉시 활용 가능한 고품질 산출물</strong>
+                </p>
+                <p style="font-size: 14px; margin-top: 20px; opacity: 0.9;">
+                    "지식을 저장하는 것이 아니라, 지식으로 새로운 것을 창조한다"
+                </p>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+    <!-- Premium Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>📚 Knowledge Wiki & Ontology Vault</h3>
+                    <p>GE 비즈니스 방법론을 온톨로지 지식 그래프로 구조화한 프리미엄 지식 저장소입니다.</p>
+                    <p>
+                        <span class="footer-badge">✨ AI 기반</span>
+                        <span class="footer-badge">🔗 38개 노드</span>
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="GitHub">🐙</a>
+                        <a href="#" class="social-link" title="Twitter">🐦</a>
+                        <a href="#" class="social-link" title="LinkedIn">💼</a>
+                        <a href="#" class="social-link" title="Email">📧</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>빠른 링크</h3>
+                    <ul class="footer-links">
+                        <li><a href="knowledge_vault_standalone.html">Knowledge Wiki & Ontology Vault</a></li>
+                        <li><a href="10_Ontology/knowledge_graph.html">지식 그래프</a></li>
+                        <li><a href="README.md">사용 가이드</a></li>
+                        <li><a href="00_Index/Home.md">홈 노트</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>원본 자료</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">GE 세일즈 노트</a></li>
+                        <li><a href="#">변화리더십 101</a></li>
+                        <li><a href="#">수퍼급 인재 만들기</a></li>
+                        <li><a href="#">소통의 신</a></li>
+                        <li><a href="#">타운미팅</a></li>
+                        <li><a href="#">1% 위대한 기업</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>저자 정보</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">심재우 프로필</a></li>
+                        <li><a href="#">GE 경력</a></li>
+                        <li><a href="#">BBC 정회원</a></li>
+                        <li><a href="#">저서 목록</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    © 2026 Knowledge Wiki & Ontology Vault. Powered by <a href="wiki-ontology-transformation.md" style="color: #667eea;">Wiki-Ontology Transformation</a>
+                </div>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 애니메이션 추가
+        const style = document.createElement('style');
+        style.textContent = \`
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5) !important;
+            }
+
+            button:active {
+                transform: translateY(0);
+            }
+        \`;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

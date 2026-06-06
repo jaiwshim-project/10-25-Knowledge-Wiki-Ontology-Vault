@@ -1,0 +1,26 @@
+item_id,type,target,issue,recommendation,priority
+R001,node,Estee Lauder,사례 기업으로 언급되었으나 상세 내용 부족,원문에서 Estee Lauder 관련 변화리더십 사례 추가 추출 필요,medium
+R002,edge,Executive Program-based_on-4E+V,4E+V와 교육 프로그램의 직접 연결 관계 추론,원문에서 명시적 연결 확인 필요,medium
+R003,edge,잭웰치-created-4E+V,4E+V 모델의 실제 창시자 확인 필요,GE 공식 문헌에서 확인 필요,low
+R004,edge,타운미팅-part_of-소통의_신,두 개념 간 관계가 명확하지 않음,원문에서 명시적 관계 확인 필요,medium
+R005,edge,1%위대한기업-connected_to-GE비즈니스방법론,약한 추론 관계,관련성의 구체적 근거 추가 필요,medium
+R006,concept,Threshold of Competency,개념의 구체적 정의와 측정 방법 부족,원문에서 상세 내용 추출 필요,high
+R007,concept,Half Time of Competency,역량 반감기 개념의 상세 설명 부족,원문에서 상세 내용 추출 필요,high
+R008,concept,AIDAS의 법칙,AIDAS 각 단계의 상세 설명 부족,원문에서 5단계 프로세스 상세 추출 필요,high
+R009,concept,10 Steps of Sales Process,10단계 프로세스의 각 단계 내용 부족,원문에서 10단계 상세 추출 필요,high
+R010,methodology,세일즈 프로세스 13가지 성공법칙,13가지 중 6가지만 확인됨,나머지 7가지 법칙 추출 필요,high
+R011,file,서적12-타운미팅(저자교정용)1부_10부.hwp,HWP 파일 미처리,HWP 파일 본문 추출 및 분석 필요,high
+R012,note,위크아웃,위크아웃(WorkOut) 프로세스 상세 설명 부족,원문에서 실행 방법 및 사례 추출 필요,medium
+R013,note,액션러닝,액션러닝(Action Learning) 프로세스 상세 설명 부족,원문에서 실행 방법 및 사례 추출 필요,medium
+R014,note,변화리더십 파이프라인,4가지 구성요소 상세화 부족,원문에서 4가지 구성요소 추출 필요,medium
+R015,note,YOU&I 회관,상대방 중심 소통의 구체적 방법 부족,원문에서 실천 방법 추출 필요,medium
+R016,coverage,1%위대한기업은어떻게일하는가_본문.pdf,PDF 앞 5페이지만 읽음,전체 내용 추출 및 분석 필요,high
+R017,coverage,소통의신_완결본.pdf,PDF 앞 5페이지만 읽음,전체 내용 추출 및 분석 필요,high
+R018,coverage,모든 PDF 파일,각 PDF의 앞 5페이지만 샘플 추출,전체 페이지 순차 분석 필요,high
+R019,duplication,Energy,9가지 리더십과 4E+V 모두에 포함,개념 중복 여부 확인 및 구분 필요,low
+R020,duplication,Energize,9가지 리더십과 4E+V 모두에 포함,개념 중복 여부 확인 및 구분 필요,low
+R021,duplication,Edge,9가지 리더십과 4E+V 모두에 포함,개념 중복 여부 확인 및 구분 필요,low
+R022,duplication,Execute,9가지 리더십과 4E+V 모두에 포함,개념 중복 여부 확인 및 구분 필요,low
+R023,metadata,모든 파일,원본 파일의 페이지 수 정보 부족,전체 페이지 수 확인 및 기록 필요,low
+R024,link,내부 링크,일부 노트에서 아직 생성되지 않은 노트로 링크,누락된 노트 생성 또는 링크 제거 필요,medium
+R025,completeness,사례 연구,구체적 사례 분석 내용 부족,원문에서 IT/제약/자동차/보험 세일즈 사례 추출 필요,medium

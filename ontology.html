@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ontology란? - Knowledge Vault</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: 700;
+            color: #2d3748;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #4a5568;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #f5576c;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 60px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #718096;
+            margin-bottom: 30px;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .section {
+            margin: 50px 0;
+        }
+
+        h2 {
+            font-size: 32px;
+            color: #2d3748;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: #4a5568;
+            margin: 30px 0 15px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4a5568;
+            margin: 15px 0;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe4e6 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(245, 87, 108, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        .ontology-example {
+            background: #f7fafc;
+            border-left: 4px solid #f5576c;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .code-block {
+            background: #2d3748;
+            color: #dcddde;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .graph-visual {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .node {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin: 10px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(245, 87, 108, 0.3);
+        }
+
+        .edge {
+            color: #718096;
+            font-size: 20px;
+            margin: 0 10px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .cta-button {
+            background: white;
+            color: #f5576c;
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        ul {
+            margin: 15px 0 15px 30px;
+            line-height: 1.8;
+        }
+
+        li {
+            margin: 8px 0;
+            color: #4a5568;
+        }
+
+        strong {
+            color: #2d3748;
+        }
+
+        .application-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .application-card {
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .application-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .application-desc {
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        code {
+            background: #2d3748;
+            color: #f093fb;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+
+        .triple-box {
+            background: #fff5f7;
+            border: 2px dashed #f5576c;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span>📚</span>
+                <span>Knowledge Vault</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">홈</a></li>
+                <li><a href="obsidian.html" class="nav-link">Obsidian</a></li>
+                <li><a href="wiki.html" class="nav-link">Wiki</a></li>
+                <li><a href="ontology.html" class="nav-link active">Ontology</a></li>
+                <li><a href="knowledge_vault_premium.html" class="nav-link" style="color: #f5576c; font-weight: 600;">Vault 열기</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero">
+            <div class="hero-icon">🔗</div>
+            <h1>Ontology란?</h1>
+            <p class="subtitle">지식의 구조를 AI가 이해할 수 있게 만드는 기술</p>
+            <div class="highlight">
+                개념 간 관계를 정의한 의미론적 지식 그래프
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💡 Ontology의 정의</h2>
+            <p>
+                Ontology(온톨로지)는 철학 용어에서 유래했으며, <strong>"존재하는 것들과 그 관계에 대한 체계적 설명"</strong>을 의미합니다.
+                컴퓨터 과학에서는 <strong>특정 도메인의 개념들과 그 관계를 형식적으로 정의한 지식 모델</strong>입니다.
+            </p>
+
+            <div class="triple-box">
+                주어(Subject) → 관계(Relation) → 목적어(Object)
+            </div>
+
+            <p style="text-align: center; color: #718096; margin-top: 10px;">
+                예: <strong>GE</strong> → <em>produces</em> → <strong>비즈니스 방법론</strong>
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <div class="feature-title">노드 (Nodes)</div>
+                    <div class="feature-desc">개념, 엔티티, 사물. 예: GE, 잭웰치, 세일즈</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">↔️</div>
+                    <div class="feature-title">엣지 (Edges)</div>
+                    <div class="feature-desc">관계, 연결. 예: includes, created_by, part_of</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏷️</div>
+                    <div class="feature-title">속성 (Properties)</div>
+                    <div class="feature-desc">노드의 특성. 예: type, domain, status</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">메타데이터</div>
+                    <div class="feature-desc">신뢰도, 출처, 생성일. 예: confidence: 0.95</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🌐 시각화 예시</h2>
+
+            <div class="graph-visual">
+                <div>
+                    <span class="node">GE 비즈니스 방법론</span>
+                </div>
+                <div class="edge">↓ includes</div>
+                <div>
+                    <span class="node">세일즈</span>
+                    <span class="node">리더십</span>
+                    <span class="node">인재육성</span>
+                </div>
+                <div class="edge">↓ includes</div>
+                <div>
+                    <span class="node">Boss Managing</span>
+                    <span class="node">9가지 리더십</span>
+                    <span class="node">4E + V</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📋 Ontology 구조 예시</h2>
+
+            <h3>1. 노드 정의 (Nodes)</h3>
+            <div class="code-block">node_id: N001
+label: GE 비즈니스 방법론
+type: Methodology
+domain: business_leadership
+description: GE에서 15년간 축적된 비즈니스 방법론 체계
+status: active
+tags: [GE, 비즈니스, 방법론]</div>
+
+            <h3>2. 관계 정의 (Edges)</h3>
+            <div class="code-block">edge_id: E001
+source: GE 비즈니스 방법론
+relation: includes
+target: 세일즈 프로세스 13가지 성공법칙
+confidence: 0.95
+source_file: GE의 세일즈 노트.pdf</div>
+
+            <h3>3. Cypher 쿼리 (Neo4j)</h3>
+            <div class="code-block">// 노드 생성
+CREATE (:Methodology {
+  id: 'N001',
+  label: 'GE 비즈니스 방법론',
+  domain: 'business_leadership'
+})
+
+// 관계 생성
+MATCH (a {id: 'N001'}), (b {id: 'N002'})
+CREATE (a)-[:INCLUDES {confidence: 0.95}]->(b)
+
+// 쿼리: GE와 관련된 모든 방법론 찾기
+MATCH (ge:Company {label: 'GE'})-[:PRODUCES]->(m:Methodology)
+RETURN m.label</div>
+        </div>
+
+        <div class="section">
+            <h2>🚀 실전 활용 분야</h2>
+
+            <div class="application-grid">
+                <div class="application-card">
+                    <div class="application-title">
+                        <span>🤖</span>
+                        <span>AI/ML</span>
+                    </div>
+                    <div class="application-desc">
+                        지식 그래프 기반 추천 시스템, RAG (Retrieval-Augmented Generation), 질의응답 시스템
+                    </div>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-title">
+                        <span>🔍</span>
+                        <span>시맨틱 검색</span>
+                    </div>
+                    <div class="application-desc">
+                        단순 키워드가 아닌 의미 기반 검색. Google Knowledge Graph, Bing Satori
+                    </div>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-title">
+                        <span>🏥</span>
+                        <span>의료/바이오</span>
+                    </div>
+                    <div class="application-desc">
+                        질병-유전자-약물 관계 모델링. FDA, WHO 온톨로지 사용
+                    </div>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-title">
+                        <span>💼</span>
+                        <span>기업 지식 관리</span>
+                    </div>
+                    <div class="application-desc">
+                        부서 간 지식 연결, 전문가 찾기, 프로젝트 관계 추적
+                    </div>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-title">
+                        <span>🛒</span>
+                        <span>전자상거래</span>
+                    </div>
+                    <div class="application-desc">
+                        상품 분류 체계, 추천 알고리즘, 고객 세분화
+                    </div>
+                </div>
+
+                <div class="application-card">
+                    <div class="application-title">
+                        <span>🎓</span>
+                        <span>교육</span>
+                    </div>
+                    <div class="application-desc">
+                        학습 경로 추천, 선수과목 관계, 개인화된 커리큘럼
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💎 Ontology의 가치</h2>
+
+            <h3>1. AI가 이해할 수 있는 지식</h3>
+            <p>
+                단순 텍스트가 아닌 <strong>구조화된 지식</strong>으로 AI가 추론 가능:
+            </p>
+            <div class="ontology-example">
+                <strong>질문:</strong> "GE 방법론을 만든 사람은?"<br><br>
+                <strong>온톨로지 기반 추론:</strong><br>
+                1. GE 비즈니스 방법론 → created_by → 심재우<br>
+                2. GE 비즈니스 방법론 → includes → 변화리더십 101<br>
+                3. 변화리더십 101 → created_by → 잭웰치<br><br>
+                <strong>답변:</strong> "심재우 (전체), 잭웰치 (일부)"
+            </div>
+
+            <h3>2. 숨겨진 연결 발견</h3>
+            <p>
+                2-hop, 3-hop 관계로 비자명한 패턴 발견:
+            </p>
+            <div class="code-block">// 잭웰치와 간접 연결된 모든 개념
+MATCH (jack:Person {label: '잭웰치'})-[*1..3]-(concept)
+RETURN DISTINCT concept.label
+
+// 결과: 9가지 리더십, Energy, Energize, Edge, Execute...</div>
+
+            <h3>3. 자동화된 지식 통합</h3>
+            <p>
+                여러 출처의 지식을 자동으로 병합:
+            </p>
+            <ul>
+                <li>출처 A: "GE → 4E+V"</li>
+                <li>출처 B: "4E+V → Energy"</li>
+                <li><strong>자동 추론:</strong> "GE → 4E+V → Energy"</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🔧 구축 방법</h2>
+
+            <h3>1. 수동 구축</h3>
+            <ul>
+                <li>전문가가 직접 노드와 관계 정의</li>
+                <li>높은 정확도, 시간 많이 소요</li>
+                <li>예: 의료 온톨로지 (SNOMED CT)</li>
+            </ul>
+
+            <h3>2. 반자동 구축</h3>
+            <ul>
+                <li>NLP로 초안 생성 → 전문가 검토</li>
+                <li>균형잡힌 접근</li>
+                <li>예: 기업 내부 지식 그래프</li>
+            </ul>
+
+            <h3>3. 자동 구축</h3>
+            <ul>
+                <li>GPT, BERT 등으로 문서에서 자동 추출</li>
+                <li>빠르지만 검증 필요</li>
+                <li>예: Wikipedia → DBpedia</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>📊 성공 사례</h2>
+
+            <div class="ontology-example">
+                <h3 style="margin-bottom: 15px;">🔵 Google Knowledge Graph</h3>
+                <ul>
+                    <li>5억+ 개 엔티티, 180억+ 관계</li>
+                    <li>검색 결과 우측 지식 패널</li>
+                    <li>"아인슈타인" 검색 → 생년월일, 업적, 관련 인물 자동 표시</li>
+                </ul>
+            </div>
+
+            <div class="ontology-example">
+                <h3 style="margin-bottom: 15px;">🛒 Amazon Product Graph</h3>
+                <ul>
+                    <li>상품-카테고리-브랜드-리뷰 관계 모델링</li>
+                    <li>"이 상품을 본 고객이 함께 본 상품" 추천</li>
+                    <li>매출 35% 증가 기여</li>
+                </ul>
+            </div>
+
+            <div class="ontology-example">
+                <h3 style="margin-bottom: 15px;">💊 Drug-Gene Interaction DB</h3>
+                <ul>
+                    <li>약물-유전자-질병 온톨로지</li>
+                    <li>신약 개발 시간 30% 단축</li>
+                    <li>부작용 예측 정확도 85%</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 심재우 저서 Ontology</h2>
+
+            <p>본 Knowledge Vault는 다음과 같은 온톨로지 구조를 가지고 있습니다:</p>
+
+            <div class="code-block">📊 통계:
+- 노드: 38개
+- 관계: 50개
+- 노드 유형: 8종 (Methodology, Concept, Person, Company...)
+- 관계 유형: 9종 (includes, created_by, part_of...)
+
+🌐 주요 허브:
+- 9가지 핵심 리더십 (11개 연결)
+- GE (9개 연결)
+- GE 비즈니스 방법론 (5개 연결)
+
+🔗 클러스터:
+- GE 비즈니스 방법론 코어
+- 세일즈 영역
+- 리더십 영역
+- 인재 육성 영역
+- 소통 영역</div>
+
+            <p style="margin-top: 20px;">
+                <strong>활용 가능:</strong>
+            </p>
+            <ul>
+                <li>Neo4j Graph Database로 import</li>
+                <li>Vector DB (Supabase pgvector)로 의미 검색</li>
+                <li>RAG 챗봇 지식 베이스</li>
+                <li>D3.js로 인터랙티브 시각화</li>
+            </ul>
+        </div>
+
+        <div class="cta-section">
+            <h2 style="color: white; margin-bottom: 20px;">실제 Ontology 그래프 보기</h2>
+            <p style="font-size: 18px; margin-bottom: 30px;">
+                38개 노드와 50개 관계로 구성된 지식 그래프를 직접 체험해보세요
+            </p>
+            <a href="knowledge_vault_premium.html" class="cta-button">
+                🔗 Knowledge Graph 열기
+            </a>
+        </div>
+    </div>
+</body>
+</html>

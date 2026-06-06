@@ -1,0 +1,51 @@
+edge_id,source,relation,target,confidence,source_file,source_chunk,status
+E001,GE 비즈니스 방법론,includes,세일즈 프로세스 13가지 성공법칙,0.95,서적 4 - GE의 세일즈 노트.pdf,F002-C001,active
+E002,GE 비즈니스 방법론,includes,변화리더십 101,0.95,서적 5 - GE의  변화리더십 101.pdf,F003-C001,active
+E003,GE 비즈니스 방법론,includes,4E + V,0.95,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,F004-C001,active
+E004,잭웰치,created_by,변화리더십 101,0.98,서적 5 - GE의  변화리더십 101.pdf,F003-C002,active
+E005,잭웰치,leads,GE,0.98,multiple,multiple,active
+E006,GE,produces,GE 비즈니스 방법론,0.95,multiple,multiple,active
+E007,심재우,worked_at,GE,0.98,multiple,multiple,active
+E008,심재우,created,GE 비즈니스 방법론,0.92,multiple,multiple,active
+E009,심재우,member_of,BBC,0.95,multiple,multiple,active
+E010,세일즈 프로세스 13가지 성공법칙,includes,Boss Managing,0.92,서적 4 - GE의 세일즈 노트.pdf,F002-C003,active
+E011,세일즈 프로세스 13가지 성공법칙,includes,Customer Managing,0.92,서적 4 - GE의 세일즈 노트.pdf,F002-C003,active
+E012,세일즈 프로세스 13가지 성공법칙,includes,AIDAS의 법칙,0.90,서적 4 - GE의 세일즈 노트.pdf,F002-C004,active
+E013,세일즈 프로세스 13가지 성공법칙,includes,10 Steps of Sales Process,0.90,서적 4 - GE의 세일즈 노트.pdf,F002-C004,active
+E014,변화리더십 101,includes,위크아웃,0.93,서적 5 - GE의  변화리더십 101.pdf,F003-C003,active
+E015,변화리더십 101,includes,액션러닝,0.93,서적 5 - GE의  변화리더십 101.pdf,F003-C003,active
+E016,변화리더십 101,includes,변화리더십 파이프라인,0.92,서적 5 - GE의  변화리더십 101.pdf,F003-C004,active
+E017,변화리더십 101,includes,9가지 핵심 리더십,0.95,서적 5 - GE의  변화리더십 101.pdf,F003-C005,active
+E018,4E + V,part_of,Energy,0.98,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,F004-C002,active
+E019,4E + V,part_of,Energize,0.98,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,F004-C002,active
+E020,4E + V,part_of,Edge,0.98,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,F004-C002,active
+E021,4E + V,part_of,Execute,0.98,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,F004-C002,active
+E022,4E + V,part_of,Values,0.98,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,F004-C002,active
+E023,GE,uses,Executive Program,0.93,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,F004-C003,active
+E024,GE,uses,Advanced Manager Program,0.93,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,F004-C003,active
+E025,GE,uses,Professional Skill Program,0.93,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,F004-C003,active
+E026,Executive Program,based_on,4E + V,0.88,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,F004-C004,review
+E027,Advanced Manager Program,based_on,4E + V,0.88,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,F004-C004,review
+E028,Professional Skill Program,based_on,4E + V,0.88,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,F004-C004,review
+E029,세일즈 프로세스 13가지 성공법칙,related_to,Threshold of Competency,0.85,서적 4 - GE의 세일즈 노트.pdf,F002-C005,review
+E030,세일즈 프로세스 13가지 성공법칙,related_to,Half Time of Competency,0.85,서적 4 - GE의 세일즈 노트.pdf,F002-C005,review
+E031,소통의 신,includes,YOU&I 회관,0.90,소통의신_완결본.pdf,F005-C002,active
+E032,GE,uses,GE Global 미팅,0.92,서적 4 - GE의 세일즈 노트.pdf,F002-C006,active
+E033,9가지 핵심 리더십,includes,Energy,0.95,서적 5 - GE의  변화리더십 101.pdf,F003-C006,active
+E034,9가지 핵심 리더십,includes,Energize,0.95,서적 5 - GE의  변화리더십 101.pdf,F003-C006,active
+E035,9가지 핵심 리더십,includes,Vision Maker,0.95,서적 5 - GE의  변화리더십 101.pdf,F003-C006,active
+E036,9가지 핵심 리더십,includes,Edge,0.95,서적 5 - GE의  변화리더십 101.pdf,F003-C006,active
+E037,9가지 핵심 리더십,includes,Execute,0.95,서적 5 - GE의  변화리더십 101.pdf,F003-C006,active
+E038,9가지 핵심 리더십,includes,Integrity,0.95,서적 5 - GE의  변화리더십 101.pdf,F003-C006,active
+E039,9가지 핵심 리더십,includes,Communication,0.95,서적 5 - GE의  변화리더십 101.pdf,F003-C006,active
+E040,9가지 핵심 리더십,includes,Risk-Taking,0.95,서적 5 - GE의  변화리더십 101.pdf,F003-C006,active
+E041,9가지 핵심 리더십,includes,Sharing & Celebration,0.95,서적 5 - GE의  변화리더십 101.pdf,F003-C006,active
+E042,9가지 핵심 리더십,includes,Excellence & Competency,0.95,서적 5 - GE의  변화리더십 101.pdf,F003-C006,active
+E043,잭웰치,created,9가지 핵심 리더십,0.95,서적 5 - GE의  변화리더십 101.pdf,F003-C002,active
+E044,잭웰치,created,4E + V,0.92,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,F004-C001,review
+E045,변화리더십 101,example,Estee Lauder,0.85,서적 5 - GE의  변화리더십 101.pdf,F003-C007,review
+E046,1% 위대한 기업,connected_to,GE 비즈니스 방법론,0.75,1%위대한기업은어떻게일하는가_본문.pdf,F001-C001,review
+E047,타운미팅,part_of,소통의 신,0.80,소통의신_완결본.pdf,F005-C003,review
+E048,심재우,created,소통의 신,0.95,소통의신_완결본.pdf,F005-C001,active
+E049,심재우,created,타운미팅,0.95,서적12-타운미팅(저자교정용)1부_10부.hwp,F006-C001,active
+E050,심재우,created,1% 위대한 기업,0.95,1%위대한기업은어떻게일하는가_본문.pdf,F001-C001,active

@@ -1,0 +1,39 @@
+node_id,label,type,domain,description,source_file,status,aliases,tags
+N001,GE 비즈니스 방법론,Methodology,business_leadership,General Electric의 세일즈-리더십-인재육성 통합 방법론,서적 4 - GE의 세일즈 노트.pdf,active,GE Business Methodology,GE;비즈니스;방법론
+N002,세일즈 프로세스 13가지 성공법칙,Methodology,sales,GE 프로들이 사용하는 13가지 세일즈 성공 법칙 체계,서적 4 - GE의 세일즈 노트.pdf,active,13 Sales Success Principles,세일즈;성공법칙;GE
+N003,변화리더십 101,Methodology,change_leadership,잭 웰치의 변화관리 방법론과 9가지 리더십 자질,서적 5 - GE의  변화리더십 101.pdf,active,Change Leadership 101,변화리더십;GE;잭웰치
+N004,4E + V,Concept,talent_development,GE의 인재 선발 및 육성 핵심 역량 모델,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,active,4E+V Model,인재육성;역량모델;GE
+N005,잭웰치,Person,business_leadership,GE를 세계 최고 기업으로 만든 전설적 CEO,multiple,active,Jack Welch,CEO;리더십;GE
+N006,GE,Company,manufacturing,세계 최고의 비즈니스 프로세스를 보유한 글로벌 복합기업,multiple,active,General Electric,GE;글로벌기업;제조업
+N007,심재우,Person,business_author,GE 글로벌 비즈니스 역량 전문가이자 저술가,multiple,active,Jai-Woo Shim,저자;GE전문가;컨설턴트
+N008,소통의 신,Concept,communication,페이스북 등 소셜미디어를 활용한 현대적 소통 방법론,소통의신_완결본.pdf,active,Social Media Communication,소통;소셜미디어;페이스북
+N009,Boss Managing,Function,sales,상사를 매니징하는 세일즈 기술,서적 4 - GE의 세일즈 노트.pdf,active,보스 매니징,세일즈;매니징;상사관리
+N010,Customer Managing,Function,sales,고객을 매니징하는 세일즈 기술,서적 4 - GE의 세일즈 노트.pdf,active,고객 매니징,세일즈;매니징;고객관리
+N011,AIDAS의 법칙,Concept,sales,세일즈 프로세스의 5단계 법칙,서적 4 - GE의 세일즈 노트.pdf,active,AIDAS Law,세일즈;법칙;프로세스
+N012,위크아웃,Process,change_management,GE의 변화관리 핵심 프로세스,서적 5 - GE의  변화리더십 101.pdf,active,WorkOut,변화관리;GE;프로세스
+N013,액션러닝,Process,change_management,GE의 실행 중심 학습 방법론,서적 5 - GE의  변화리더십 101.pdf,active,Action Learning,학습;변화관리;GE
+N014,변화리더십 파이프라인,Framework,change_leadership,체계적인 변화리더 양성 체계,서적 5 - GE의  변화리더십 101.pdf,active,Change Leadership Pipeline,리더십;파이프라인;변화관리
+N015,Energy,Concept,talent_development,개인의 열정과 추진력 (4E 중 첫 번째),서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,active,에너지,4E+V;역량;열정
+N016,Energize,Concept,talent_development,타인에게 에너지를 전달하는 능력 (4E 중 두 번째),서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,active,동기부여,4E+V;역량;동기부여
+N017,Edge,Concept,talent_development,어려운 결정을 내리는 용기 (4E 중 세 번째),서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,active,결단력,4E+V;역량;결단력
+N018,Execute,Concept,talent_development,계획을 실제 성과로 전환하는 능력 (4E 중 네 번째),서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,active,실행력,4E+V;역량;실행력
+N019,Values,Concept,talent_development,조직의 핵심 가치 체화 (V),서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,active,가치,4E+V;역량;가치관
+N020,Executive Program,Process,talent_development,GE의 경영진 교육 프로그램,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,active,경영진 프로그램,교육;GE;경영진
+N021,Advanced Manager Program,Process,talent_development,GE의 고급관리자 교육 프로그램,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,active,고급관리자 프로그램,교육;GE;관리자
+N022,Professional Skill Program,Process,talent_development,GE의 전문가 교육 프로그램,서적8-GE는 어떻게 수퍼급 인재를 만드는가.pdf,active,전문가 프로그램,교육;GE;전문가
+N023,Threshold of Competency,Concept,talent_development,비즈니스 역량의 역치,서적 4 - GE의 세일즈 노트.pdf,active,역량의 역치,역량;한계;기준
+N024,Half Time of Competency,Concept,talent_development,역량의 반감기 개념,서적 4 - GE의 세일즈 노트.pdf,active,역량의 반감기,역량;감소;시간
+N025,YOU&I 회관,Concept,communication,상대방 중심 소통 원칙,소통의신_완결본.pdf,active,YOU and I Principle,소통;상대방중심;원칙
+N026,타운미팅,Process,organizational_communication,조직 소통 방법론,서적12-타운미팅(저자교정용)1부_10부.hwp,active,Town Meeting,조직소통;회의;미팅
+N027,GE Global 미팅,Process,business_process,GE의 글로벌 미팅 문화,서적 4 - GE의 세일즈 노트.pdf,active,GE Global Meeting,미팅;GE;글로벌
+N028,10 Steps of Sales Process,Process,sales,세일즈 프로세스 10단계,서적 4 - GE의 세일즈 노트.pdf,active,세일즈 10단계,세일즈;프로세스;단계
+N029,9가지 핵심 리더십,Framework,change_leadership,잭 웰치의 9가지 변화혁신 리더십 자질,서적 5 - GE의  변화리더십 101.pdf,active,9 Leadership Qualities,리더십;잭웰치;9가지
+N030,Vision Maker,Concept,leadership,미래를 그리는 비전 창조 능력,서적 5 - GE의  변화리더십 101.pdf,active,비전 메이커,리더십;비전;창조
+N031,Integrity,Concept,leadership,윤리와 신뢰의 리더십,서적 5 - GE의  변화리더십 101.pdf,active,도덕성,리더십;윤리;신뢰
+N032,Communication,Concept,leadership,효과적인 소통 능력,서적 5 - GE의  변화리더십 101.pdf,active,커뮤니케이션,리더십;소통;의사소통
+N033,Risk-Taking,Concept,leadership,위험을 감수하는 도전정신,서적 5 - GE의  변화리더십 101.pdf,active,위험 감수,리더십;도전;위험
+N034,Sharing & Celebration,Concept,leadership,성과 공유와 인정 문화,서적 5 - GE의  변화리더십 101.pdf,active,공유와 축하,리더십;공유;축하
+N035,Excellence & Competency,Concept,leadership,탁월함과 역량 개발,서적 5 - GE의  변화리더십 101.pdf,active,탁월함과 역량,리더십;탁월함;역량
+N036,1% 위대한 기업,Concept,organizational_innovation,집단 창의성을 키우는 협업스킬,1%위대한기업은어떻게일하는가_본문.pdf,active,Great Company 1%,창의성;협업;혁신
+N037,Estee Lauder,Company,cosmetics,변화리더십 사례 기업,서적 5 - GE의  변화리더십 101.pdf,review,에스티로더,화장품;사례;리더십
+N038,BBC,Organization,business_writers,Biz Book Writers Club - 비즈니스 저술가 클럽,multiple,active,Biz Book Writers Club,저술;클럽;비즈니스
