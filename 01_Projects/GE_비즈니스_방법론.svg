@@ -1,76 +1,127 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
   <defs>
-    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1a1f3a;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#0f1729;stop-opacity:1" />
     </linearGradient>
-    <radialGradient id="glow2" cx="50%" cy="30%">
-      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:0.3" />
+    <radialGradient id="glow" cx="50%" cy="30%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:0.4" />
       <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:0" />
     </radialGradient>
   </defs>
 
-  <rect width="800" height="600" fill="url(#bg2)"/>
-  <ellipse cx="400" cy="200" rx="300" ry="200" fill="url(#glow2)"/>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <ellipse cx="600" cy="250" rx="450" ry="250" fill="url(#glow)"/>
 
-  <!-- Icon & Title -->
-  <text x="400" y="80" text-anchor="middle" style="font-size: 56px;">💼</text>
-  <text x="400" y="130" text-anchor="middle" style="font-size: 32px; font-weight: bold; fill: #f1f5f9;">
+  <!-- Title -->
+  <text x="600" y="90" text-anchor="middle" style="font-size: 64px;">💼</text>
+  <text x="600" y="150" text-anchor="middle" style="font-size: 40px; font-weight: bold; fill: #f1f5f9;">
     GE 비즈니스 방법론
   </text>
-  <text x="400" y="160" text-anchor="middle" style="font-size: 14px; fill: #a78bfa;">
-    METHODOLOGY
+  <text x="600" y="185" text-anchor="middle" style="font-size: 16px; fill: #a78bfa;">
+    METHODOLOGY | General Electric 15년 실무 경험의 집약
   </text>
-  <text x="400" y="185" text-anchor="middle" style="font-size: 15px; fill: #94a3b8;">
-    15년간 축적된 세일즈, 변화관리, 인재육성 비즈니스 방법론 체계
-  </text>
-
-  <!-- Central Box -->
-  <rect x="150" y="220" width="500" height="280" rx="12" fill="rgba(30, 41, 59, 0.7)" stroke="rgba(167, 139, 250, 0.3)" stroke-width="2"/>
-
-  <!-- 3 Pillars -->
-  <text x="400" y="255" text-anchor="middle" style="font-size: 18px; font-weight: bold; fill: #c4b5fd;">
-    3대 핵심 방법론
+  <text x="600" y="210" text-anchor="middle" style="font-size: 14px; fill: #94a3b8;">
+    세일즈, 변화관리, 인재육성의 통합 비즈니스 체계
   </text>
 
-  <!-- Pillar 1: Sales -->
-  <rect x="170" y="280" width="140" height="200" rx="8" fill="rgba(102, 126, 234, 0.2)" stroke="rgba(102, 126, 234, 0.4)" stroke-width="1.5"/>
-  <text x="240" y="310" text-anchor="middle" style="font-size: 28px;">📊</text>
-  <text x="240" y="345" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #f1f5f9;">세일즈</text>
-  <text x="240" y="370" text-anchor="middle" style="font-size: 11px; fill: #94a3b8;">프로세스</text>
-  <line x1="180" y1="385" x2="300" y2="385" stroke="rgba(102, 126, 234, 0.3)" stroke-width="1"/>
-  <text x="240" y="405" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">13가지 성공법칙</text>
-  <text x="240" y="425" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">Boss Managing</text>
-  <text x="240" y="445" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">Customer Managing</text>
-  <text x="240" y="465" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">AIDAS 법칙</text>
+  <!-- Three Pillars -->
+  <g transform="translate(600, 270)">
+    <text x="0" y="0" text-anchor="middle" style="font-size: 22px; font-weight: bold; fill: #c4b5fd;">
+      3대 핵심 방법론
+    </text>
+    <line x1="-250" y1="15" x2="250" y2="15" stroke="rgba(167, 139, 250, 0.3)" stroke-width="2"/>
+  </g>
 
-  <!-- Pillar 2: Leadership -->
-  <rect x="330" y="280" width="140" height="200" rx="8" fill="rgba(167, 139, 250, 0.2)" stroke="rgba(167, 139, 250, 0.4)" stroke-width="1.5"/>
-  <text x="400" y="310" text-anchor="middle" style="font-size: 28px;">🚀</text>
-  <text x="400" y="345" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #f1f5f9;">변화리더십</text>
-  <text x="400" y="370" text-anchor="middle" style="font-size: 11px; fill: #94a3b8;">101</text>
-  <line x1="340" y1="385" x2="460" y2="385" stroke="rgba(167, 139, 250, 0.3)" stroke-width="1"/>
-  <text x="400" y="405" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">9가지 리더십</text>
-  <text x="400" y="425" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">위크아웃</text>
-  <text x="400" y="445" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">액션러닝</text>
-  <text x="400" y="465" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">파이프라인</text>
+  <!-- Pillar 1: Sales (Left) -->
+  <g transform="translate(150, 320)">
+    <rect x="0" y="0" width="280" height="400" rx="12" fill="rgba(102, 126, 234, 0.2)" stroke="rgba(102, 126, 234, 0.5)" stroke-width="2.5"/>
 
-  <!-- Pillar 3: Talent -->
-  <rect x="490" y="280" width="140" height="200" rx="8" fill="rgba(74, 222, 128, 0.2)" stroke="rgba(74, 222, 128, 0.4)" stroke-width="1.5"/>
-  <text x="560" y="310" text-anchor="middle" style="font-size: 28px;">⭐</text>
-  <text x="560" y="345" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #f1f5f9;">인재육성</text>
-  <text x="560" y="370" text-anchor="middle" style="font-size: 11px; fill: #94a3b8;">시스템</text>
-  <line x1="500" y1="385" x2="620" y2="385" stroke="rgba(74, 222, 128, 0.3)" stroke-width="1"/>
-  <text x="560" y="405" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">4E + V 모델</text>
-  <text x="560" y="425" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">Executive Program</text>
-  <text x="560" y="445" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">Manager Program</text>
-  <text x="560" y="465" text-anchor="middle" style="font-size: 11px; fill: #cbd5e1;">Skill Program</text>
+    <text x="140" y="50" text-anchor="middle" style="font-size: 40px;">📊</text>
+    <text x="140" y="95" text-anchor="middle" style="font-size: 22px; font-weight: bold; fill: #f1f5f9;">세일즈</text>
+    <text x="140" y="120" text-anchor="middle" style="font-size: 13px; fill: #94a3b8;">프로세스</text>
+
+    <line x1="30" y1="140" x2="250" y2="140" stroke="rgba(102, 126, 234, 0.3)" stroke-width="1.5"/>
+
+    <text x="140" y="170" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #a5b4fc;">13가지 성공법칙</text>
+
+    <circle cx="40" cy="200" r="4" fill="#667eea"/>
+    <text x="55" y="205" style="font-size: 13px; fill: #cbd5e1;">고객 중심 사고</text>
+
+    <circle cx="40" cy="230" r="4" fill="#667eea"/>
+    <text x="55" y="235" style="font-size: 13px; fill: #cbd5e1;">Pull형 세일즈</text>
+
+    <circle cx="40" cy="260" r="4" fill="#667eea"/>
+    <text x="55" y="265" style="font-size: 13px; fill: #cbd5e1;">스토리의 힘</text>
+
+    <text x="140" y="300" text-anchor="middle" style="font-size: 14px; font-weight: bold; fill: #a5b4fc;">핵심 도구</text>
+
+    <text x="55" y="330" style="font-size: 12px; fill: #94a3b8;">• AIDAS 법칙</text>
+    <text x="55" y="350" style="font-size: 12px; fill: #94a3b8;">• 10 Steps 프로세스</text>
+    <text x="55" y="370" style="font-size: 12px; fill: #94a3b8;">• Boss Managing</text>
+  </g>
+
+  <!-- Pillar 2: Leadership (Center) -->
+  <g transform="translate(460, 320)">
+    <rect x="0" y="0" width="280" height="400" rx="12" fill="rgba(167, 139, 250, 0.2)" stroke="rgba(167, 139, 250, 0.5)" stroke-width="2.5"/>
+
+    <text x="140" y="50" text-anchor="middle" style="font-size: 40px;">🚀</text>
+    <text x="140" y="95" text-anchor="middle" style="font-size: 22px; font-weight: bold; fill: #f1f5f9;">변화리더십</text>
+    <text x="140" y="120" text-anchor="middle" style="font-size: 13px; fill: #94a3b8;">101</text>
+
+    <line x1="30" y1="140" x2="250" y2="140" stroke="rgba(167, 139, 250, 0.3)" stroke-width="1.5"/>
+
+    <text x="140" y="170" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #c4b5fd;">9가지 리더십 자질</text>
+
+    <text x="55" y="205" style="font-size: 13px; fill: #cbd5e1;">1. Energize & Growth</text>
+    <text x="55" y="230" style="font-size: 13px; fill: #cbd5e1;">2. Vision Maker</text>
+    <text x="55" y="255" style="font-size: 13px; fill: #cbd5e1;">3. Energy & Positive</text>
+    <text x="55" y="280" style="font-size: 13px; fill: #cbd5e1;">4. Integrity</text>
+    <text x="55" y="305" style="font-size: 13px; fill: #cbd5e1;">5. Edge (결단력)</text>
+
+    <text x="140" y="335" text-anchor="middle" style="font-size: 14px; font-weight: bold; fill: #c4b5fd;">핵심 프로그램</text>
+
+    <text x="55" y="360" style="font-size: 12px; fill: #94a3b8;">• 위크아웃 (WorkOut)</text>
+    <text x="55" y="380" style="font-size: 12px; fill: #94a3b8;">• 액션러닝</text>
+  </g>
+
+  <!-- Pillar 3: Talent (Right) -->
+  <g transform="translate(770, 320)">
+    <rect x="0" y="0" width="280" height="400" rx="12" fill="rgba(74, 222, 128, 0.2)" stroke="rgba(74, 222, 128, 0.5)" stroke-width="2.5"/>
+
+    <text x="140" y="50" text-anchor="middle" style="font-size: 40px;">⭐</text>
+    <text x="140" y="95" text-anchor="middle" style="font-size: 22px; font-weight: bold; fill: #f1f5f9;">인재육성</text>
+    <text x="140" y="120" text-anchor="middle" style="font-size: 13px; fill: #94a3b8;">시스템</text>
+
+    <line x1="30" y1="140" x2="250" y2="140" stroke="rgba(74, 222, 128, 0.3)" stroke-width="1.5"/>
+
+    <text x="140" y="170" text-anchor="middle" style="font-size: 16px; font-weight: bold; fill: #86efac;">4E + V 모델</text>
+
+    <text x="40" y="205" style="font-size: 14px; font-weight: bold; fill: #48bb78;">E</text>
+    <text x="60" y="205" style="font-size: 13px; fill: #cbd5e1;">Energy - 열정</text>
+
+    <text x="40" y="235" style="font-size: 14px; font-weight: bold; fill: #48bb78;">E</text>
+    <text x="60" y="235" style="font-size: 13px; fill: #cbd5e1;">Energize - 동기부여</text>
+
+    <text x="40" y="265" style="font-size: 14px; font-weight: bold; fill: #48bb78;">E</text>
+    <text x="60" y="265" style="font-size: 13px; fill: #cbd5e1;">Edge - 결단력</text>
+
+    <text x="40" y="295" style="font-size: 14px; font-weight: bold; fill: #48bb78;">E</text>
+    <text x="60" y="295" style="font-size: 13px; fill: #cbd5e1;">Execute - 실행력</text>
+
+    <text x="40" y="325" style="font-size: 14px; font-weight: bold; fill: #f59e0b;">V</text>
+    <text x="60" y="325" style="font-size: 13px; fill: #cbd5e1;">Values - 가치</text>
+
+    <text x="140" y="360" text-anchor="middle" style="font-size: 14px; font-weight: bold; fill: #86efac;">교육 프로그램</text>
+
+    <text x="55" y="385" style="font-size: 11px; fill: #94a3b8;">Executive / Manager / Professional</text>
+  </g>
 
   <!-- Footer -->
-  <text x="400" y="540" text-anchor="middle" style="font-size: 13px; fill: #64748b;">
-    출처: 서적 4 - GE의 세일즈 노트.pdf, 서적 5 - GE의 변화리더십 101.pdf
+  <text x="600" y="755" text-anchor="middle" style="font-size: 13px; fill: #64748b;">
+    출처: 서적 4 (GE의 세일즈 노트), 서적 5 (GE의 변화리더십 101) | 저자: 심재우
   </text>
-  <text x="400" y="565" text-anchor="middle" style="font-size: 12px; fill: #64748b;">
-    저자: 심재우 | GE 15년 실무 경험 집약
+  <text x="600" y="780" text-anchor="middle" style="font-size: 12px; fill: #64748b;">
+    GE 15년 실무 경험 기반 통합 비즈니스 체계
   </text>
 </svg>
