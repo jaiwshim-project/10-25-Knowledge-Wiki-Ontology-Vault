@@ -3752,13 +3752,34 @@ Energy, Energize, Edge, Execute가 4E+V와 9가지 리더십 양쪽에 포함
             // graph와 ontology를 같은 객체로 참조
             VAULT_DATA.graph = VAULT_DATA.ontology;
 
-            // URL에서 슬러그 파싱
-            const hash = window.location.hash.slice(1);
-            if (hash) {
-                parseAndNavigateToSlug(hash);
-            } else {
+            // URL 쿼리 파라미터 확인 (?search=...)
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchQuery = urlParams.get('search');
+
+            if (searchQuery) {
+                console.log('🔍 URL search parameter detected:', searchQuery);
+                // 파일 트리 렌더링
                 renderFileTree();
+                // 기본 파일 열기
                 openFile("00_Index", "Home.md", true);
+                // 검색 실행
+                setTimeout(() => {
+                    const searchInput = document.getElementById('searchInput');
+                    if (searchInput) {
+                        searchInput.value = searchQuery;
+                        performSearch();
+                        console.log('✅ Auto-search executed for:', searchQuery);
+                    }
+                }, 500);
+            } else {
+                // URL에서 슬러그 파싱
+                const hash = window.location.hash.slice(1);
+                if (hash) {
+                    parseAndNavigateToSlug(hash);
+                } else {
+                    renderFileTree();
+                    openFile("00_Index", "Home.md", true);
+                }
             }
 
             setupEventListeners();
