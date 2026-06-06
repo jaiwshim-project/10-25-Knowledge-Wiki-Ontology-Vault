@@ -665,6 +665,54 @@
             </div>
         </div>
 
+        <!-- Folder Input Section -->
+        <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border-radius: 15px; padding: 30px; margin-bottom: 40px; border: 2px solid rgba(102, 126, 234, 0.2);">
+            <h2 style="text-align: center; color: #2d3748; font-size: 24px; margin-bottom: 10px;">🚀 새 Vault 생성하기</h2>
+            <p style="text-align: center; color: #4a5568; font-size: 14px; margin-bottom: 25px;">폴더 경로를 입력하면 자동으로 Knowledge Vault를 생성합니다</p>
+
+            <div style="display: flex; gap: 10px; max-width: 700px; margin: 0 auto;">
+                <input
+                    type="text"
+                    id="folderPathInput"
+                    placeholder="예: C:\Documents\MyNotes"
+                    style="flex: 1; padding: 12px 20px; font-size: 15px; border: 2px solid rgba(102, 126, 234, 0.3); border-radius: 10px; outline: none; transition: all 0.3s ease;"
+                    onfocus="this.style.borderColor='#667eea'; this.style.boxShadow='0 0 0 3px rgba(102, 126, 234, 0.1)'"
+                    onblur="this.style.borderColor='rgba(102, 126, 234, 0.3)'; this.style.boxShadow='none'"
+                />
+                <button
+                    onclick="generateVault()"
+                    style="padding: 12px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);"
+                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.5)'"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.3)'"
+                >
+                    ✨ 생성하기
+                </button>
+            </div>
+
+            <div id="generationStatus" style="margin-top: 20px; text-align: center; display: none;">
+                <div class="loading-spinner" style="margin: 0 auto 10px;"></div>
+                <p id="statusMessage" style="color: #4a5568; font-size: 14px;"></p>
+            </div>
+
+            <div id="generationResult" style="margin-top: 20px; padding: 20px; background: white; border-radius: 10px; display: none;">
+                <h3 style="color: #2d3748; margin-bottom: 10px;">✅ 생성 완료!</h3>
+                <div id="resultStats" style="font-size: 14px; color: #4a5568; margin-bottom: 15px;"></div>
+                <button
+                    id="openVaultBtn"
+                    style="padding: 10px 20px; background: linear-gradient(135deg, #48bb78 0%, #38a169 100%); color: white; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;"
+                >
+                    🚀 Knowledge Vault 열기
+                </button>
+            </div>
+
+            <div style="margin-top: 20px; padding: 15px; background: rgba(59, 130, 246, 0.05); border-radius: 10px; border-left: 4px solid #3b82f6;">
+                <p style="margin: 0; color: #4a5568; font-size: 13px; line-height: 1.6;">
+                    💡 <strong>참고:</strong> 브라우저 보안상 로컬 파일 시스템 접근이 제한됩니다.
+                    <a href="#" onclick="showCliMethod(); return false;" style="color: #667eea; text-decoration: underline;">CLI 도구 사용 방법</a>을 확인하세요.
+                </p>
+            </div>
+        </div>
+
         <div class="buttons">
             <a href="knowledge_vault_premium.html" class="btn btn-primary" aria-label="Premium Vault 열기 - 전체 기능 사용">
                 <span aria-hidden="true">🚀</span>
@@ -941,5 +989,154 @@
       "keywords": "Knowledge Vault, 온톨로지, 지식 그래프, GE 방법론, 변화리더십, 세일즈, 4E+V, Obsidian"
     }
     </script>
+
+    <!-- Vault Generator Script -->
+    <script>
+        async function generateVault() {
+            const folderPath = document.getElementById('folderPathInput').value.trim();
+
+            if (!folderPath) {
+                alert('폴더 경로를 입력해주세요.');
+                return;
+            }
+
+            // UI 업데이트
+            document.getElementById('generationStatus').style.display = 'block';
+            document.getElementById('generationResult').style.display = 'none';
+            document.getElementById('statusMessage').textContent = 'Vault 생성 중...';
+
+            try {
+                // 백엔드 서버에 요청
+                const response = await fetch('http://localhost:3001/api/generate-vault', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ folderPath })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`서버 오류: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                // 성공
+                document.getElementById('generationStatus').style.display = 'none';
+                document.getElementById('generationResult').style.display = 'block';
+
+                document.getElementById('resultStats').innerHTML = `
+                    <p>📁 폴더: ${result.metadata.totalFolders}개</p>
+                    <p>📄 파일: ${result.metadata.totalFiles}개</p>
+                    <p>🔗 노드: ${result.metadata.totalNodes}개</p>
+                    <p>↔️ 엣지: ${result.metadata.totalEdges}개</p>
+                    <p style="margin-top: 10px; color: #718096; font-size: 12px;">📂 ${result.outputPath}</p>
+                `;
+
+                document.getElementById('openVaultBtn').onclick = () => {
+                    window.open(result.vaultUrl, '_blank');
+                };
+
+            } catch (error) {
+                console.error('생성 오류:', error);
+                document.getElementById('statusMessage').textContent = `❌ 오류: ${error.message}`;
+                document.getElementById('statusMessage').style.color = '#e53e3e';
+
+                // CLI 방법 안내
+                setTimeout(() => {
+                    if (confirm('브라우저에서 직접 생성이 불가능합니다.\nCLI 도구 사용 방법을 보시겠습니까?')) {
+                        showCliMethod();
+                    }
+                }, 2000);
+            }
+        }
+
+        function showCliMethod() {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10000;
+                padding: 20px;
+            `;
+
+            modal.innerHTML = `
+                <div style="background: white; border-radius: 15px; padding: 40px; max-width: 700px; max-height: 80vh; overflow-y: auto; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);">
+                    <h2 style="color: #2d3748; margin-bottom: 20px;">💻 CLI 도구 사용 방법</h2>
+
+                    <div style="background: #f7fafc; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #667eea;">
+                        <h3 style="color: #4a5568; font-size: 16px; margin-bottom: 10px;">1️⃣ 터미널 열기</h3>
+                        <p style="color: #718096; font-size: 14px; margin-bottom: 10px;">명령 프롬프트 또는 PowerShell을 실행하세요.</p>
+
+                        <h3 style="color: #4a5568; font-size: 16px; margin-bottom: 10px; margin-top: 20px;">2️⃣ 명령어 실행</h3>
+                        <pre style="background: #2d3748; color: #e2e8f0; padding: 15px; border-radius: 8px; overflow-x: auto; font-size: 13px;">node vault-generator.js "폴더경로"</pre>
+
+                        <h3 style="color: #4a5568; font-size: 16px; margin-bottom: 10px; margin-top: 20px;">3️⃣ 예시</h3>
+                        <pre style="background: #2d3748; color: #e2e8f0; padding: 15px; border-radius: 8px; overflow-x: auto; font-size: 13px;">node vault-generator.js "C:\\Documents\\MyNotes"</pre>
+
+                        <h3 style="color: #4a5568; font-size: 16px; margin-bottom: 10px; margin-top: 20px;">4️⃣ 결과 확인</h3>
+                        <p style="color: #718096; font-size: 14px;">
+                            <code style="background: #e2e8f0; padding: 2px 6px; border-radius: 4px;">폴더/generated_vault/knowledge_vault_premium.html</code>
+                        </p>
+                    </div>
+
+                    <div style="background: #fef5e7; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #f59e0b;">
+                        <p style="color: #78350f; font-size: 13px; margin: 0;">
+                            💡 <strong>참고:</strong> vault-generator.js 파일이 필요합니다.
+                            <a href="VAULT_GENERATOR_GUIDE.md" style="color: #667eea; text-decoration: underline;">상세 가이드 보기</a>
+                        </p>
+                    </div>
+
+                    <button
+                        onclick="this.parentElement.parentElement.remove()"
+                        style="width: 100%; padding: 12px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer;"
+                    >
+                        닫기
+                    </button>
+                </div>
+            `;
+
+            modal.onclick = (e) => {
+                if (e.target === modal) modal.remove();
+            };
+
+            document.body.appendChild(modal);
+        }
+
+        // Enter 키로 생성
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('folderPathInput');
+            if (input) {
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        generateVault();
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Loading Spinner Style -->
+    <style>
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(102, 126, 234, 0.2);
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </body>
 </html>
