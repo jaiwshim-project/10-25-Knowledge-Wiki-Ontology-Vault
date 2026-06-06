@@ -305,6 +305,7 @@
                 lines: 221,
                 created: '2026-06-06',
                 keyTopics: ['프로젝트 개요', '문서 목록', '온톨로지 구조', '폴더 구조'],
+                svgFile: '00_Index/Home.svg',
                 svgContent: `
                     <text x="20" y="40" style="font-size: 32px;">🏠</text>
                     <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">Knowledge Vault</text>
@@ -326,6 +327,7 @@
                 lines: 141,
                 created: '2026-06-06',
                 keyTopics: ['세일즈 프로세스', '변화 리더십', '인재 육성', '9가지 리더십'],
+                svgFile: '01_Projects/GE_비즈니스_방법론.svg',
                 svgContent: `
                     <text x="20" y="40" style="font-size: 32px;">💼</text>
                     <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">GE 비즈니스 방법론</text>
@@ -350,6 +352,7 @@
                 lines: 126,
                 created: '2026-06-06',
                 keyTopics: ['Boss Managing', 'Customer Managing', 'AIDAS', '10 Steps'],
+                svgFile: '03_Methodologies/세일즈_프로세스_13가지_성공법칙.svg',
                 svgContent: `
                     <text x="20" y="40" style="font-size: 32px;">📊</text>
                     <text x="20" y="90" style="font-size: 18px; font-weight: bold; fill: #f1f5f9;">세일즈 13가지 법칙</text>
@@ -375,6 +378,7 @@
                 lines: 184,
                 created: '2026-06-06',
                 keyTopics: ['9가지 리더십', '위크아웃', '액션러닝', '변화 파이프라인'],
+                svgFile: '03_Methodologies/변화리더십_101.svg',
                 svgContent: `
                     <text x="20" y="40" style="font-size: 32px;">🚀</text>
                     <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">변화 리더십 101</text>
@@ -398,6 +402,7 @@
                 lines: 123,
                 created: '2026-06-06',
                 keyTopics: ['Energy', 'Energize', 'Edge', 'Execute', 'Values'],
+                svgFile: '02_Concepts/4E+V_인재육성모델.svg',
                 svgContent: `
                     <text x="20" y="40" style="font-size: 32px;">⭐</text>
                     <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">4E + V 모델</text>
@@ -424,6 +429,7 @@
                 lines: 113,
                 created: '2026-06-06',
                 keyTopics: ['소셜미디어', '페이스북', '조직 소통', 'YOU&I 회관'],
+                svgFile: '02_Concepts/소통의_신.svg',
                 svgContent: `
                     <text x="20" y="40" style="font-size: 32px;">💬</text>
                     <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">소통의 신</text>
@@ -445,6 +451,7 @@
                 lines: 115,
                 created: '2026-06-06',
                 keyTopics: ['20년 재임', '시가총액 30배 증가', '변화 리더십', '인재 육성'],
+                svgFile: '04_Customers/잭웰치.svg',
                 svgContent: `
                     <text x="20" y="40" style="font-size: 32px;">👤</text>
                     <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">잭 웰치</text>
@@ -466,6 +473,7 @@
                 lines: 136,
                 created: '2026-06-06',
                 keyTopics: ['Fortune 500', '크로톤빌', '6시그마', '위크아웃'],
+                svgFile: '04_Customers/GE_General_Electric.svg',
                 svgContent: `
                     <text x="20" y="40" style="font-size: 32px;">🏢</text>
                     <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">General Electric</text>
@@ -487,6 +495,7 @@
                 lines: 189,
                 created: '2026-06-06',
                 keyTopics: ['15년 GE 경력', '6권 저서', 'SB 컨설팅', '아주대 강사'],
+                svgFile: '04_Customers/심재우_저자.svg',
                 svgContent: `
                     <text x="20" y="40" style="font-size: 32px;">✍️</text>
                     <text x="20" y="90" style="font-size: 20px; font-weight: bold; fill: #f1f5f9;">심재우 저자</text>
@@ -527,16 +536,15 @@
         }
 
         function viewDocument(docId) {
-            // Knowledge Vault로 이동하면서 해당 문서 검색
+            // SVG 파일로 직접 이동
             const doc = documents.find(d => d.id === docId);
-            if (doc) {
+            if (doc && doc.svgFile) {
                 console.log('Doc ID:', docId);
                 console.log('Doc Title:', doc.title);
-                const url = `knowledge_vault_premium.html?search=${encodeURIComponent(doc.title)}`;
-                console.log('Navigating to:', url);
-                window.location.href = url;
+                console.log('SVG File:', doc.svgFile);
+                window.location.href = doc.svgFile;
             } else {
-                console.error('Document not found:', docId);
+                console.error('Document or SVG file not found:', docId);
             }
         }
 
